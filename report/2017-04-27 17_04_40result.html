@@ -1,0 +1,1246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>接口自动化测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>接口自动化测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-04-27 17:04:40</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:15.957112</p>
+<p class='attribute'><strong>Status:</strong> Pass 10 Failure 4 Error 19</p>
+
+<p class='description'>用例执行情况如下</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)' class="btn btn-xs btn-primary">Summary</a>
+<a href='javascript:showCase(1)' class="btn btn-xs btn-danger">Failed</a>
+<a href='javascript:showCase(2)' class="btn btn-xs btn-info">All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='failClass'>
+    <td>test_forum.TestForum: 社区相关接口测试</td>
+    <td>4</td>
+    <td>3</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',4)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_forum_group_hot: 测试话题详情页精选页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '成功', 'isShow': False}, 'page': {'pluginVersion': 2, 'pageId': 40003, 'groupType': 0, 'groupId': 307, 'cards': [{'isDelete': False, 'isActivity': 0, 'topicId': 824945, 'authorId': 1383504, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 3, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824945'}, 'actionTarget': '/forum_app/topic?topic_id=824945&amp;topic_type=0&amp;rp=40003&amp;rpo=0&amp;rcpo=0&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3002017, 'level': 3, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383504', 'score': 0, 'comments': [], 'job': '', 'description': 'dghhbv', 'likeCount': 0, 'color': 1, 'topicType': 0, 'isShowHead': True, 'title': 'vgdvbt', 'groupId': 307, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'ppikkjj', 'time': '04-25 19:20'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824714, 'authorId': 1383504, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 1, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824714'}, 'actionTarget': '/forum_app/topic?topic_id=824714&amp;topic_type=0&amp;rp=40003&amp;rpo=0&amp;rcpo=1&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001511, 'level': 3, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383504', 'score': 0, 'comments': [], 'job': '', 'description': '额呵呵给您工地的', 'likeCount': 0, 'color': 1, 'topicType': 0, 'isShowHead': False, 'title': '额滴爹爹给个滴定', 'groupId': 307, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'ppikkjj', 'time': '03-30 10:37'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824710, 'authorId': 1383504, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 13, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824710'}, 'actionTarget': '/forum_app/topic?topic_id=824710&amp;topic_type=0&amp;rp=40003&amp;rpo=0&amp;rcpo=2&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001500, 'level': 3, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383504', 'score': 0, 'comments': [], 'job': '', 'description': '来了摸着看哦www用', 'likeCount': 2, 'color': 1, 'topicType': 0, 'isShowHead': False, 'title': 'hhj摸摸哦哦弄', 'groupId': 307, 'isLike': True, 'commentCount': 7, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'ppikkjj', 'time': '03-30 10:26'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824699, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 2, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824699'}, 'actionTarget': '/forum_app/topic?topic_id=824699&amp;topic_type=0&amp;rp=40003&amp;rpo=0&amp;rcpo=3&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001477, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': 'udjdudujdhdhdhdjdj', 'likeCount': 1, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': 'jxjjdjxjxjxjxj', 'groupId': 307, 'isLike': True, 'commentCount': 1, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '03-29 15:30'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824692, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 10, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824692'}, 'actionTarget': '/forum_app/topic?topic_id=824692&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=4&amp;rc=132', 'actionType': 102}, 'authorId': 1000423, 'postId': 3001463, 'level': 6, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000423', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://www.bilibili.com/video/av9421137/', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FkX-ce3V87DC9vL2DaRz-VLGAOCh', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=4&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': 'GG课代表', 'description': '范德萨范德萨发生大幅度是地方撒范德萨范德萨范德萨', 'likeCount': 0, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': 'B站测试003地方撒第三方as', 'groupId': 307, 'isLike': False, 'commentCount': 1, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '加载失败……', 'time': '03-27 15:44'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824691, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 8, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824691'}, 'actionTarget': '/forum_app/topic?topic_id=824691&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=5&amp;rc=132', 'actionType': 102}, 'authorId': 1000432, 'postId': 3001461, 'level': 8, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000432', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://www.bilibili.com/video/av9421137/', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/Fp0VSqUBHEgRWYnkFiRd_IT6wwXp', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=5&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': '', 'description': '防守打法第三方士大夫打赏打赏', 'likeCount': 0, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': 'B站测试002范德萨范德萨发多少', 'groupId': 307, 'isLike': False, 'commentCount': 1, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '耗尽余生等一人', 'time': '03-27 15:42'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824690, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 1, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824690'}, 'actionTarget': '/forum_app/topic?topic_id=824690&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=6&amp;rc=132', 'actionType': 102}, 'authorId': 1000538, 'postId': 3001459, 'level': 7, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000538', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://bangumi.bilibili.com/anime/5778/play#100693', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FlQHYhH1DE6CTz1PeuzDLemhjKD-', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=6&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': '', 'description': '更放得开感受到发多少范德萨范德萨', 'likeCount': 0, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': 'B站测试001范德萨范德萨', 'groupId': 307, 'isLike': False, 'commentCount': 1, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '松手在风里.', 'time': '03-27 15:41'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824689, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 11, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824689'}, 'actionTarget': '/forum_app/topic?topic_id=824689&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=7&amp;rc=132', 'actionType': 102}, 'authorId': 1000552, 'postId': 3001457, 'level': 7, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000552', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://www.bilibili.com/video/av9357409/?tg', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FhB8qkVRzLE-6Nh46B7VoKWONuy8', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=7&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': '', 'description': 'fdsfdsfdsfdsa范德萨范德萨', 'likeCount': 0, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': 'b站测试2范德萨范德萨', 'groupId': 307, 'isLike': False, 'commentCount': 1, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '似水流年', 'time': '03-27 14:55'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824688, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 11, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824688'}, 'actionTarget': '/forum_app/topic?topic_id=824688&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=8&amp;rc=132', 'actionType': 102}, 'authorId': 1000138, 'postId': 3001455, 'level': 8, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000138', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://v.youku.com/v_show/id_XMjY2MjQ4NTUwMA==.html?from=y1.3-idx-beta-1519-23042.223465.5-1', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FuoAvaUimH3e-LRZkBwJoMS8fFMY', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=8&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': '', 'description': '范德萨发的所发生的', 'likeCount': 0, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': '测试视频优酷2', 'groupId': 307, 'isLike': False, 'commentCount': 2, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '逃跑', 'time': '03-27 14:35'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824687, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 13, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824687'}, 'actionTarget': '/forum_app/topic?topic_id=824687&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=9&amp;rc=132', 'actionType': 102}, 'authorId': 1000167, 'postId': 3001453, 'level': 6, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000167', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://www.bilibili.com/video/av9372087/', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FilaX50a_ZHhfmCK-qTBGbs6ne91', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=9&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': '', 'description': '测试视频洛天依', 'likeCount': 0, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': '测试视频洛天依', 'groupId': 307, 'isLike': False, 'commentCount': 1, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '空港', 'time': '03-27 14:34'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824682, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 6, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824682'}, 'actionTarget': '/forum_app/topic?topic_id=824682&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=10&amp;rc=132', 'actionType': 102}, 'authorId': 1000303, 'postId': 3001448, 'level': 8, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000303', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://www.bilibili.com/video/av9216728/', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FlWC0ltn5ne95pEvMLLK2RzMI3v5', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=10&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': '', 'description': '按时大开杀戒打蜡是捡来的就爱是来得及拉升就到了', 'likeCount': 0, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': '测试测试测试视频', 'groupId': 307, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '子非我、安知我心', 'time': '03-20 14:58'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824681, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 21, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824681'}, 'actionTarget': '/forum_app/topic?topic_id=824681&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=11&amp;rc=132', 'actionType': 102}, 'authorId': 1000015, 'postId': 3001447, 'level': 6, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000015', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://www.bilibili.com/video/av9213363/', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FoOj3ywkMokSP1gskVscrmMJwy4B', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=11&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': 'GG管理员', 'description': '( ⊙ o ⊙ )啊！嗄按时打算打赏打点啊实打实的', 'likeCount': 0, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': '测试视频视频', 'groupId': 307, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '芥末的未', 'time': '03-20 14:56'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824672, 'authorId': 1633416, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 0, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824672'}, 'actionTarget': '/forum_app/topic?topic_id=824672&amp;topic_type=0&amp;rp=40003&amp;rpo=0&amp;rcpo=12&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001413, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1633416', 'score': 0, 'comments': [], 'job': '', 'description': '比较斤斤计较', 'likeCount': 1, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': '哼哼唧唧斤斤计较', 'groupId': 307, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '冷空气又来了', 'time': '03-17 16:39'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824649, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': ['http://o8ui7j5n4.bkt.clouddn.com/38cdca3b0c30882844a582b965fce995'], 'isShowFoot': True, 'scanCount': 1, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824649'}, 'actionTarget': '/forum_app/topic?topic_id=824649&amp;topic_type=0&amp;rp=40003&amp;rpo=0&amp;rcpo=13&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001343, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': '红哦家里叽叽叽叽积极', 'likeCount': 0, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': '测试啊配合啊配合阿尔egg', 'groupId': 307, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '03-16 18:28'}, {'isDelete': False, 'isActivity': 0, 'topicId': 823847, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 1692, 'isDigest': 0, 'topicAction': {'actionData': {'param': '823847'}, 'actionTarget': '/forum_app/topic?topic_id=823847&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=14&amp;rc=132', 'actionType': 102}, 'authorId': 1272224, 'postId': 2952946, 'level': 6, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1272224', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://v.youku.com/v_show/id_XMjUxMTAzMDU2OA==', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FppceX-Z3BwGTLjmUFxdeKlTU-6D', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=14&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': 'GG版主', 'description': '这可是一部神作', 'likeCount': 4, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': '《地平线：黎明时分》实机演示', 'groupId': 307, 'isLike': False, 'commentCount': 6, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '隔壁王二狗', 'time': '02-25 10:25'}, {'isDelete': False, 'isActivity': 0, 'topicId': 823691, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 6363, 'isDigest': 0, 'topicAction': {'actionData': {'param': '823691'}, 'actionTarget': '/forum_app/topic?topic_id=823691&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=15&amp;rc=132', 'actionType': 102}, 'authorId': 1272224, 'postId': 2949179, 'level': 6, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1272224', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://v.youku.com/v_show/id_XMjUyNTE5MDI5Ng==', 'showAd': True, 'videoPic': 'http://7xleam.com1.z0.glb.clouddn.com/2017224sw1.png', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=15&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': 'GG版主', 'description': '一开始以为只是个道具，没想到居然能实战', 'likeCount': 14, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': '大神制作守望先锋猎空的激光枪居然有真实杀伤力', 'groupId': 307, 'isLike': False, 'commentCount': 26, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '隔壁王二狗', 'time': '02-24 15:04'}, {'isDelete': False, 'isActivity': 0, 'topicId': 823683, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 1386, 'isDigest': 0, 'topicAction': {'actionData': {'param': '823683'}, 'actionTarget': '/forum_app/topic?topic_id=823683&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=16&amp;rc=132', 'actionType': 102}, 'authorId': 1272224, 'postId': 2948953, 'level': 6, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1272224', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://v.youku.com/v_show/id_XMjUyNTIxNDkyMA==', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/Fv4FAxBHhTL6DdXO3zUJXdiI6fvW', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=16&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': 'GG版主', 'description': '米哈游旗下3D动作手游《崩坏3》新版本「舰团启航」正式上线!新版本增加了玩家共同作战的公会系统——舰团，舰长可以在舰团中参与矩阵探索、强敌入侵、保税仓库、回收委托等舰团活动。舰团内还将开放新的剧情关卡：「八重樱」与「黑轩辕」的“永世回忆篇”。此外还有每日任务、狂暴模式、家园互访等新功能登场，新舰长上任还可以参与关爱新人福利活动，赶快进入游戏体验一下吧!', 'likeCount': 1, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': '舰团来了!《崩坏3》新版本「舰团启航」上线', 'groupId': 307, 'isLike': False, 'commentCount': 2, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '隔壁王二狗', 'time': '02-24 14:04'}, {'isDelete': False, 'isActivity': 0, 'topicId': 823466, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 1755, 'isDigest': 0, 'topicAction': {'actionData': {'param': '823466'}, 'actionTarget': '/forum_app/topic?topic_id=823466&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=17&amp;rc=132', 'actionType': 102}, 'authorId': 1272217, 'postId': 2944550, 'level': 11, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1272217', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://v.youku.com/v_show/id_XMjUyNjc0MjI1Mg==', 'showAd': True, 'videoPic': 'http://7xleam.com1.z0.glb.clouddn.com/2017223bh3.jpg', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=17&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': 'GG管理员', 'description': '大家好，感谢我们的G友提供了一个暂时解决这款游戏的闪退方案。首先，你不要从魔盒里面打开游戏，而是从搜索中找到游戏并打开，然后在即将打开的一瞬间，你关掉后台运行，随便开一个其他的东西，再从后台启动游戏即可，闪退问题就解决啦\n', 'likeCount': 8, 'color': 3, 'topicType': 3, 'isShowHead': False, 'title': '崩坏2完美闪退解决方案（民间）', 'groupId': 307, 'isLike': False, 'commentCount': 15, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': 'GG大美女', 'time': '02-23 14:34'}, {'isDelete': False, 'isActivity': 0, 'topicId': 823434, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 2190, 'isDigest': 0, 'topicAction': {'actionData': {'param': '823434'}, 'actionTarget': '/forum_app/topic?topic_id=823434&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=18&amp;rc=132', 'actionType': 102}, 'authorId': 1272224, 'postId': 2944005, 'level': 6, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1272224', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://v.youku.com/v_show/id_XMjUyNTE1NjM1Mg==', 'showAd': True, 'videoPic': 'http://7xleam.com1.z0.glb.clouddn.com/2017223gta.png', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=18&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': 'GG版主', 'description': '猜对没奖，嘿嘿', 'likeCount': 6, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': 'GTA5汽车VS战斗机~猜猜谁更快', 'groupId': 307, 'isLike': False, 'commentCount': 6, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '隔壁王二狗', 'time': '02-23 12:16'}, {'isDelete': False, 'isActivity': 0, 'topicId': 823115, 'isTop': 0, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 2490, 'isDigest': 0, 'topicAction': {'actionData': {'param': '823115'}, 'actionTarget': '/forum_app/topic?topic_id=823115&amp;topic_type=3&amp;rp=40003&amp;rpo=0&amp;rcpo=19&amp;rc=132', 'actionType': 102}, 'authorId': 1273421, 'postId': 2935692, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'videoAction': {'actionData': {'video_type': 0, 'isPortrait': True, 'htmlSuper': 'http://my.tv.sohu.com/us/309337214/87547058.shtml', 'showAd': True, 'videoPic': 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FpEDxmMe-oCsOYvROgcGHDFKNILr', 'param': ''}, 'actionTarget': '?rp=40003&amp;rpo=0&amp;rcpo=19&amp;rc=132', 'actionType': 4}, 'score': 0, 'comments': [], 'job': '', 'description': '\u3000怪兽片《金刚：骷髅岛》近日曝光了新的电影片段，视频展示了人类是如何一步步见到金刚这一庞然巨物的，此外片段还出现了金刚与人类交手的场面，看来一场人兽大战在所难免。\n\n《金刚：骷髅岛》的故事将发生在上世纪70年代，美国宇航局启动了陆地卫星项目，人类偶然发现了一个未知的岛屿，几位主角因此被前往调查研究的故事。而在岛上考察的过程中，他们发现了此地拥有各种未知的恐怖生物，以及一只超大的猩猩——金刚。\n\n《金刚：骷髅岛》将于3月24日在中国内地上映，敬请期待。', 'likeCount': 4, 'color': 2, 'topicType': 3, 'isShowHead': False, 'title': '《金刚：骷髅岛》最新片段发布~ 史上最大金刚霸气登场', 'groupId': 307, 'isLike': False, 'commentCount': 5, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '02-21 13:48'}], 'groupName': 'GGTV', 'loadMoreUrl': '/forum_app/group4?group_id=307&amp;sort_rule=1&amp;page=1', 'headCard': [{'isConcern': False, 'title': 'GGTV', 'groupId': 307, 'joinCount': 1623, 'followCount': 1623, 'cardId': 135, 'icon': 'http://7xvmjm.com1.z0.glb.clouddn.com//bcd4f493015fbf68dca837291beff622', 'pic': 'http://7xvmjm.com1.z0.glb.clouddn.com//ad9a871455cc4de687d146216004795f', 'desc': ''}, {'isDigest': 1, 'isShowHead': True, 'isActivity': 0, 'topicId': 800590, 'isTop': 1, 'action': {'actionData': {'param': '800590'}, 'actionTarget': '/forum_app/topic?topic_id=800590', 'actionType': 102}, 'postTitle': '第一次看女生打架！好刺激哟', 'isShowFoot': False, 'cardId': 122, 'isHot': 1}, {'isDigest': 0, 'isShowHead': False, 'isActivity': 0, 'topicId': 805960, 'isTop': 1, 'action': {'actionData': {'param': '805960'}, 'actionTarget': '/forum_app/topic?topic_id=805960', 'actionType': 102}, 'postTitle': '单机游戏搞笑镜头合辑', 'isShowFoot': False, 'cardId': 122, 'isHot': 0}, {'isDigest': 0, 'isShowHead': False, 'isActivity': 0, 'topicId': 806919, 'isTop': 1, 'action': {'actionData': {'param': '806919'}, 'actionTarget': '/forum_app/topic?topic_id=806919', 'actionType': 102}, 'postTitle': 'MC vs 真实世界', 'isShowFoot': False, 'cardId': 122, 'isHot': 1}, {'isDigest': 0, 'isShowHead': False, 'isActivity': 0, 'topicId': 808525, 'isTop': 1, 'action': {'actionData': {'param': '808525'}, 'actionTarget': '/forum_app/topic?topic_id=808525', 'actionType': 102}, 'postTitle': '即将到来的PS4游戏2017 -最佳PS4游戏预告片', 'isShowFoot': False, 'cardId': 122, 'isHot': 0}, {'isDigest': 0, 'isShowHead': False, 'isActivity': 0, 'topicId': 815386, 'isTop': 1, 'action': {'actionData': {'param': '815386'}, 'actionTarget': '/forum_app/topic?topic_id=815386', 'actionType': 102}, 'postTitle': '关于“冒充敖厂长”一事的处罚说明', 'isShowFoot': False, 'cardId': 122, 'isHot': 0}, {'isDigest': 0, 'isShowHead': False, 'isActivity': 0, 'topicId': 816212, 'isTop': 1, 'action': {'actionData': {'param': '816212'}, 'actionTarget': '/forum_app/topic?topic_id=816212', 'actionType': 102}, 'postTitle': '《忍者东武》试玩视频', 'isShowFoot': False, 'cardId': 122, 'isHot': 0}], 'isForum': True, 'pageTitle': 'GGTV', 'updateCount': 1, 'tabCard': {'isShowFoot': True, 'cardId': 15, 'items': [{'pageType': 1, 'isFocus': False, 'title': '精选', 'action': {'actionTarget': '/forum_app/group4?group_id=307&amp;sort_rule=0', 'actionType': 3}}, {'pageType': 1, 'isFocus': False, 'title': '最新', 'action': {'actionTarget': '/forum_app/group4?group_id=307&amp;sort_rule=1', 'actionType': 3}}], 'focusIndex': 0}}}, 'tips': {}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_forum_group_new: 测试话题详情页最新页面</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '成功', 'isShow': False}, 'page': {'pluginVersion': 2, 'pageId': 40003, 'groupType': 0, 'groupId': 305, 'cards': [{'isDelete': False, 'isActivity': 0, 'topicId': 823429, 'authorId': 1277370, 'deleteNeedScore': 0, 'pics': ['http://p3.pstatp.com/large/15f700087e0d5f7ce4b1'], 'isShowFoot': True, 'scanCount': 1722, 'isDigest': 0, 'topicAction': {'actionData': {'param': '823429'}, 'actionTarget': '/forum_app/topic?topic_id=823429&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=0&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2943935, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1277370', 'score': 0, 'comments': [], 'job': 'GG小编', 'description': '《饥荒》联机测试版中新增的蚁狮非常有趣，作用与猪王相仿，可用物品与其交易物品，下面小编带来《饥荒》联机版蚁狮位置及作用介绍，一起来了解一下吧。\n地上变化：\n夏季沙漠会严重雾霾，只限沙漠，减速，视野超小。沙漠里有个湖（貌似只有夏天才会有水），里面掉鱼可以出辣鸡，打开有惊喜（3个设计图：伪防雾霾头盔，真防雾霾头盔，多肉盆栽）。还有各种玩具，可以给蚁狮交易，做传送台。\n蚁狮：\n类似猪王，可以交易（用玩具，肉不行），沙漠地区会有。特殊交易物品，水桶和铲子的样子，也是湖里钓鱼得到，给蚁狮交易，可以得到传送台设计图。长期不和他交易就会地震（距离不清楚，可能出了沙漠就震不到），地震', 'likeCount': 11, 'color': 2, 'topicType': 8, 'isShowHead': True, 'title': '《饥荒》联机版蚁狮有什么用 饥荒联机版蚁狮位置及作用介绍', 'groupId': 305, 'isLike': False, 'commentCount': 8, 'cardId': 132, 'isHot': 0, 'gender': 2, 'name': '零度', 'time': '02-23 12:08'}, {'isDelete': False, 'isActivity': 0, 'topicId': 823026, 'authorId': 1572747, 'deleteNeedScore': 10, 'pics': ['http://o8ui7j5n4.bkt.clouddn.com/07d81e9af0d803adb7003897b85f173a'], 'isShowFoot': True, 'scanCount': 935, 'isDigest': 0, 'topicAction': {'actionData': {'param': '823026'}, 'actionTarget': '/forum_app/topic?topic_id=823026&amp;topic_type=0&amp;rp=40003&amp;rpo=0&amp;rcpo=1&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2933957, 'level': 3, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1572747', 'score': 10, 'comments': [], 'job': '', 'description': '谁知道这东西和蜜汁火腿有什么区别', 'likeCount': 8, 'color': 1, 'topicType': 0, 'isShowHead': False, 'title': '蜜汁卤肉和蜜汁火腿有什么区别', 'groupId': 305, 'isLike': False, 'commentCount': 17, 'cardId': 132, 'isHot': 1, 'gender': 0, 'name': 'ihi感觉个', 'time': '02-20 22:32'}, {'isDelete': False, 'isActivity': 0, 'topicId': 821719, 'authorId': 1272223, 'deleteNeedScore': 0, 'pics': ['http://qiniuimg.yyhudong.com/0f03764046ac149c2ff9632cad4923d4.jpg', 'http://qiniuimg.yyhudong.com/6497e942c4e1e375daf9b02e7b2ee413.jpg', 'http://qiniuimg.yyhudong.com/6016e38b56b77450448fa3e8d7a60b1e.jpg'], 'isShowFoot': True, 'scanCount': 2979, 'isDigest': 0, 'topicAction': {'actionData': {'param': '821719'}, 'actionTarget': '/forum_app/topic?topic_id=821719&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=2&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2909889, 'level': 4, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1272223', 'score': 0, 'comments': [], 'job': 'GG小编', 'description': '饥荒游戏你真的会玩么？\n死过n次的手残党，有没有什么总结过什么经验？\n@张明臣\n某玩家总结出一个特别适合手残又无脑的玩法。\n进游戏！\n1-8天，沿着地图的边缘开图，要把地图跑遍。跑图需要找以下几个东西。\n1、牛群在什么位置！\n牛毛和牛角可以用来做帽子，还可以帮你抵御猎狗！\n2、有几个海象巢穴\n象牙做跑帐，象帽子很暖和，回san值很快！狗牙可以做狗牙陷阱大阵。\n3、沙漠在什么位置！\n滚风草可以开出机械齿轮，有的地图一个机械马，机械法师，机械推土机都没有，不想开新档，齿轮只能靠它开出来。齿轮是造冰箱用的。\n4、机械人马或者机械法师在什么位置。', 'likeCount': 23, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '你真的会玩“饥荒”么？', 'groupId': 305, 'isLike': False, 'commentCount': 11, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '人间失格', 'time': '02-15 13:29'}, {'isDelete': False, 'isActivity': 0, 'topicId': 820766, 'authorId': 1272224, 'deleteNeedScore': 0, 'pics': ['http://7xleam.com1.z0.glb.clouddn.com/17210yc001.png', 'http://7xleam.com1.z0.glb.clouddn.com/17210yc002.jpg', 'http://7xleam.com1.z0.glb.clouddn.com/17210yc005.jpg'], 'isShowFoot': True, 'scanCount': 52071, 'isDigest': 0, 'topicAction': {'actionData': {'param': '820766'}, 'actionTarget': '/forum_app/topic?topic_id=820766&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=3&amp;rc=132', 'actionType': 102}, 'isTop': 1, 'postId': 2890032, 'level': 6, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1272224', 'score': 0, 'comments': [], 'job': 'GG版主', 'description': '《饥荒》是一款暗黑风的生存游戏,讲述了一名科学家被恶魔传送到了一个神秘的异世界，他必须利用异世界中的一切自然资源来艰难求生，同时戒备各种异世界生物的威胁，并最终逃出生天。\n《饥荒》以它独特的画面风格征服众多玩家，玩家们纷纷在此沉沦称之为时间杀手。游戏虽然好玩但有时候也会让人气的想扔掉手机——那就是死后不能复生，必须全部从头开始。因为死过一次后所有的进度和所有的道具都会清零，你又要从第一天捡树枝的苦逼生活开始，每一次不小心的死去，都要换来超过\n30\n分钟的重复初始工作，这实在是太难熬了。\n所以呢二狗就来给大家介绍下《饥荒》的游戏MOD(mod是加载在官方原版游戏上运行，不用', 'likeCount': 121, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '饥荒最新MOD功能？嘘！小点声，一般人我不告诉他', 'groupId': 305, 'isLike': False, 'commentCount': 453, 'cardId': 132, 'isHot': 1, 'gender': 0, 'name': '隔壁王二狗', 'time': '02-10 18:48'}, {'isDelete': False, 'isActivity': 0, 'topicId': 816109, 'authorId': 1137532, 'deleteNeedScore': 0, 'pics': ['http://o8ui7j5n4.bkt.clouddn.com/c43e33e3dc7489dcbae43b668a7a6994', 'http://o8ui7j5n4.bkt.clouddn.com/804940b4d8197c979d12b0fb8f114626'], 'isShowFoot': True, 'scanCount': 922, 'isDigest': 0, 'topicAction': {'actionData': {'param': '816109'}, 'actionTarget': '/forum_app/topic?topic_id=816109&amp;topic_type=0&amp;rp=40003&amp;rpo=0&amp;rcpo=4&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2800181, 'level': 13, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1137532', 'score': 0, 'comments': [], 'job': 'GG课代表', 'description': '欢还有几张动态图太大无法上传[泪][泪][泪][泪]', 'likeCount': 18, 'color': 3, 'topicType': 0, 'isShowHead': False, 'title': '红红火火失败系列', 'groupId': 305, 'isLike': False, 'commentCount': 5, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '源.', 'time': '01-24 21:59'}, {'isDelete': False, 'isActivity': 0, 'topicId': 816104, 'authorId': 1137532, 'deleteNeedScore': 30, 'pics': ['http://o8ui7j5n4.bkt.clouddn.com/8b443ed7aaa20de1ea77d7d5398a2a6a', 'http://o8ui7j5n4.bkt.clouddn.com/887af467f0d9acc834cf3239b5232bd2', 'http://o8ui7j5n4.bkt.clouddn.com/477db5d95a07e1138d2fd6ec80652a6a'], 'isShowFoot': True, 'scanCount': 2111, 'isDigest': 1, 'topicAction': {'actionData': {'param': '816104'}, 'actionTarget': '/forum_app/topic?topic_id=816104&amp;topic_type=0&amp;rp=40003&amp;rpo=0&amp;rcpo=5&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2800130, 'level': 13, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1137532', 'score': 30, 'comments': [], 'job': 'GG课代表', 'description': '\u202e \u202e\u3000\u202e\u3000\u202e\u3000', 'likeCount': 17, 'color': 3, 'topicType': 0, 'isShowHead': False, 'title': '红红火火作死失败系列（这个不是活动的贴 →_→）', 'groupId': 305, 'isLike': False, 'commentCount': 42, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '源.', 'time': '01-24 21:47'}, {'isDelete': False, 'isActivity': 0, 'topicId': 816253, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://7xvmjm.com2.z0.glb.qiniucdn.com/FjZDBfUgf7H3EKCTVthzUfgH-M7w', 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FsHRdSCc49S2-z8-BB9zFaSvezoH', 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FizfgNsqqB79J7KWxms8APkCDVU7'], 'isShowFoot': True, 'scanCount': 6519, 'isDigest': 0, 'topicAction': {'actionData': {'param': '816253'}, 'actionTarget': '/forum_app/topic?topic_id=816253&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=6&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2803572, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '《饥荒》游戏中洞穴冒险的时候都需要有哪些注意的地方呢，今天小编给大家带来了洞穴冒险的流程攻略，还不知道怎么玩的朋友一起来学习吧！\n开地洞首先要用镐子挖被封住的落水洞(整个图就三个，三个地洞不相同)\n我这里是单机版的，联机版的地洞和单机版的差别很大，玩联机版的还是不要被带坏了。\n这里说一下下洞穴要带什么吧(在玩的时候发现这个图里带的东西不太好，这里做一下修改)，工具类带金镐子，锤子。\n装备的话，矿工帽，木甲，猪皮帽。根据季节，可以再带风扇，牛帽，眼球伞等(洞穴秋天平稳，冬天低温，春天漏水，夏天高温)\n材料类还是带上打龙蝇用的草绳吧，金子，猪皮，木头，燃料(洞穴里木头', 'likeCount': 28, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '《饥荒》洞穴冒险流程攻略 冒险模式教学', 'groupId': 305, 'isLike': False, 'commentCount': 12, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-25 15:13'}, {'isDelete': False, 'isActivity': 0, 'topicId': 815900, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://joymepic.joyme.com/wiki/images/starve/3/3c/%E5%B9%B4%E5%A4%9C%E9%A5%AD5.jpg?v=201701241359', 'http://joymepic.joyme.com/wiki/images/starve/4/45/%E5%B9%B4%E5%A4%9C%E9%A5%AD01.jpg?v=201701241359', 'http://joymepic.joyme.com/wiki/images/starve/4/40/%E5%B9%B4%E5%A4%9C%E9%A5%AD6.gif?v=201701241359'], 'isShowFoot': True, 'scanCount': 2613, 'isDigest': 0, 'topicAction': {'actionData': {'param': '815900'}, 'actionTarget': '/forum_app/topic?topic_id=815900&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=7&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2797536, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '时逢今日，距离传统的春节越来越近。过年期间最少不了的就是年三十晚上那一桌丰盛的年夜饭。寻常日子不容易吃到的饭菜都会陆续摆上饭桌。(馋死我了···)\n鸡年自然要happy一下！！！\n而在《饥荒》的世界里，食物和食谱是大家在生存过程当中都需要面对的。今天吃什么啊?唉，随便。\n萌萌的小火鸡自然是不能缺少的\n普天同庆的日子在饥荒的世界里也是很开心。鸡年自然对于鸡类美食无法抗拒。相信大家一定会先想到火鸡，啊，鲜嫩多汁、欲罢不能啊!(小编摸摸的擦了一下口水。)\n这么多的锅一起煮？吃得完吗？\n不过在食谱体系里面，少不了各式的蔬菜、', 'likeCount': 7, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '年夜饭好期待 饥荒巨人国美味食谱端上来', 'groupId': 305, 'isLike': False, 'commentCount': 12, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-24 14:56'}, {'isDelete': False, 'isActivity': 0, 'topicId': 815870, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://img1.gamersky.com/image2017/01/20170124_my_227_1/image001_S.jpg', 'http://img1.gamersky.com/image2017/01/20170124_my_227_1/image002_S.jpg', 'http://img1.gamersky.com/image2017/01/20170124_my_227_1/image003_S.jpg'], 'isShowFoot': True, 'scanCount': 5658, 'isDigest': 0, 'topicAction': {'actionData': {'param': '815870'}, 'actionTarget': '/forum_app/topic?topic_id=815870&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=8&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2797078, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '点击查看大图\n补充\n花沙拉（flowersalad）\n所用食材：names.cactusflower（仙人掌花）、tags.veggie\nand\ntags.veggie\n&gt;=\n2（蔬菜大于等于2）、not\ntags.meat（不放肉）、not\ntags.inedible（不放树枝）、not\ntags.egg（不放蛋）、not\ntags.sweetener（不放蜂蜜或蜂巢）、not\ntags.fruit（不放水果）\n食物类型：蔬菜\n补血量：40点血\n补饥饿量：12.5点饥饿\n保鲜时间：6天\n补脑值：5点脑\n料理时间:0.5(0.5小时）\n这', 'likeCount': 14, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '《饥荒》自制趣味食谱分享', 'groupId': 305, 'isLike': False, 'commentCount': 20, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-24 14:04'}, {'isDelete': False, 'isActivity': 0, 'topicId': 815868, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://img1.gamersky.com/image2016/11/20161113_my_227_9/image019_S.jpg', 'http://img1.gamersky.com/image2016/11/20161113_my_227_9/image021_S.jpg', 'http://img1.gamersky.com/image2016/11/20161113_my_227_9/image023_S.jpg'], 'isShowFoot': True, 'scanCount': 7344, 'isDigest': 0, 'topicAction': {'actionData': {'param': '815868'}, 'actionTarget': '/forum_app/topic?topic_id=815868&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=9&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2797007, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '兔人习性\n养兔人可不像养猪人那么简单，它就像养毒蛇一样。\n高风险，高回报；越熟练，风险越低。\n1.兔人的活动时间：白天睡觉，傍晚与夜晚出门。\n2.兔人的刷新时间：1天（顺便一提猪人的刷新时间是4天）\n比如在第5天傍晚消灭了一只兔人，那么第6天傍晚兔人房就会刷出兔人。\n3.兔人的攻击对象\n(1)敌对生物（如：各类BOSS、蜘蛛、齿轮怪、猎犬、树精、蠕虫等）\n(2)蜘蛛人\n(3)玩家身上带了有“腥味”的东西，被认为是“肉食者”。包括：\n肉类：鱼、鳗鱼、青蛙腿、鸡腿、小肉、大肉、怪物肉、肉干、食人花肉。\n蛋类：高鸟蛋、鸟蛋。\n荤菜：配方中包含肉类和蛋', 'likeCount': 28, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '《饥荒》高手进阶篇 兔人养殖指南', 'groupId': 305, 'isLike': False, 'commentCount': 20, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-24 13:58'}, {'isDelete': False, 'isActivity': 0, 'topicId': 815847, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://7xvmjm.com2.z0.glb.qiniucdn.com/Fjd4LAYpHf3HksvPbz8uTa3oAJGI', 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FiaN3EkMJn3fG6fppRy7HBaNXWRJ', 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FvsuUFmoiGqzWbh2U9DJsOzS2Y5W'], 'isShowFoot': True, 'scanCount': 3729, 'isDigest': 0, 'topicAction': {'actionData': {'param': '815847'}, 'actionTarget': '/forum_app/topic?topic_id=815847&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=10&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2796789, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '《饥荒》游戏中不知道大家有没有海妖及虎鲨boss的打法心得呢，今天小编给大家带来了两个boss的针对打法技巧及掉落物的说明，不清楚的玩家一起来看看吧!\n海妖打法\n1.装备需求【旗鱼短剑，装甲船配蛇皮帆，船灯，木甲】\n2.走位【躲开触手，海浪无视】\n3.打头上去就是一顿输出【打头】\n寻找方法\n用拖网在深海区拖边放树枝边拖，准备2到3个拖网，持续一会即可拖出，拖出来就是一顿输出\n爆卷风撑腰\n爆卷风打法\n1.装备需求【海妖的装备】\n2.走位【打2走1别贪刀，发现卡住狂输出。看见开大上船跑，跑完继续回来撸!】【好湿好湿】\n3.卡住就狂输出', 'likeCount': 10, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '《饥荒》海妖虎鲨boss打法 海妖和虎鲨怎么打', 'groupId': 305, 'isLike': False, 'commentCount': 5, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-24 13:28'}, {'isDelete': False, 'isActivity': 0, 'topicId': 815521, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://joymepic.joyme.com/wiki/images/starve/6/6b/%E7%88%86%E7%82%B8%E5%8E%9F%E5%9B%A07.jpg?v=201701231400', 'http://joymepic.joyme.com/wiki/images/starve/b/b0/%E6%89%93%E5%BC%80%E6%96%B9%E5%BC%8F1.jpg?v=201701231400', 'http://joymepic.joyme.com/wiki/images/starve/c/ca/%E9%A5%A5%E8%8D%92%E7%88%86%E7%82%B85.jpg?v=201701231400'], 'isShowFoot': True, 'scanCount': 3357, 'isDigest': 0, 'topicAction': {'actionData': {'param': '815521'}, 'actionTarget': '/forum_app/topic?topic_id=815521&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=11&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2790953, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '今日早些时候我收到了一条消息，三星方面公开了原本Note7爆炸的真实原因，翻来覆去看了一遍之后，才知道这是电池的锅。\n嘭的一声，手机造成的伤害不言而喻。而反观携带火药与手雷的《饥荒》世界当中，错误的打开方式也注定会酿成难以控制的局面。\n可能还有许多玩家都未曾见过饥荒爆炸的瞬间会发生什么，错误的打开方式可能会是这样。\n高高兴兴走过龙人巢，嘭!\n咦?怎么天黑了???\n其实大家可能还会想到，如果我拿着一个Note7会是怎样的结果呢?答案可能是这样的···\n着火啦!着火啦!灭火器在哪里???\n除', 'likeCount': 3, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': 'Note7爆炸怪电池 饥荒中爆炸要怪炸药与手雷', 'groupId': 305, 'isLike': False, 'commentCount': 6, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-23 14:18'}, {'isDelete': False, 'isActivity': 0, 'topicId': 815473, 'authorId': 1277370, 'deleteNeedScore': 0, 'pics': ['http://p3.pstatp.com/large/158a0000ca5f021f58dc', 'http://p1.pstatp.com/large/158a0000ca611be6c86a', 'http://p3.pstatp.com/large/15600005c3d608dd2c3d'], 'isShowFoot': True, 'scanCount': 4707, 'isDigest': 0, 'topicAction': {'actionData': {'param': '815473'}, 'actionTarget': '/forum_app/topic?topic_id=815473&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=12&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2790145, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1277370', 'score': 0, 'comments': [{'content': '感觉这个游戏好难好上瘾。', 'isLike': False, 'postId': 2790161, 'likeCount': 41, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000199', 'name': '心劫'}], 'job': 'GG小编', 'description': '饥荒中的蜜蜂女王怎么杀，可能不少玩家觉得难度不小，其实只要掌握了技巧，一点也不难，今天小编就为大家带来饥荒单人低消耗单杀蜜蜂女王玩法，感兴趣的玩家赶紧一起来看看吧!\n战前准备\n必须：熊大一头，步行手杖一条，照明设施食物若干。\n可选：养蜂人的帽子，木甲，补给和食物若干。\n原理\n熊大的平a是无差别范围攻击，\n拍地板是范围内生物越多伤害越高的无差别范围攻击。所以我们要做的就是利用走位让熊大“误伤”蜜蜂女王，以至互相伤害。\n首先拉仇恨把熊大引到蜂王的位置，然后速度丢下若干食物，熊大就会被食物吸引以取消仇恨，\n马上锤子敲出女王，捡起食物或者a一下熊大', 'likeCount': 39, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '《饥荒：联机版》单人低消耗单杀蜜蜂女王玩法', 'groupId': 305, 'isLike': False, 'commentCount': 10, 'cardId': 132, 'isHot': 0, 'gender': 2, 'name': '零度', 'time': '01-23 11:51'}, {'isDelete': False, 'isActivity': 0, 'topicId': 815304, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://joymepic.joyme.com/wiki/images/starve/e/ee/%E6%AD%BB%E6%B3%951-1.jpg?v=201701221433', 'http://joymepic.joyme.com/wiki/images/starve/8/82/%E6%AD%BB%E6%B3%951-2.jpg?v=201701221433', 'http://joymepic.joyme.com/wiki/images/starve/9/98/%E8%A1%A8%E6%83%851.jpg?v=201701221433'], 'isShowFoot': True, 'scanCount': 29022, 'isDigest': 0, 'topicAction': {'actionData': {'param': '815304'}, 'actionTarget': '/forum_app/topic?topic_id=815304&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=13&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2786311, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [{'content': '我记得我还是萌新的时候，好不容易熬了10多天，用猪人把狗群搞掉，还剩下那么几点血，喜滋滋的拿块怪物肉在那啃……不说了，都是泪……', 'isLike': False, 'postId': 2790331, 'likeCount': 30, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1208886', 'name': '不要、否定我^'}], 'job': '', 'description': '写在前面\n古人说的好：“NO\nZUO\nNO\nDIE”。当你意识到危险到来的时候，不明智的选择会直接断送你的生命。\n当然，在《饥荒》的世界当中，形形色色的生物，哪怕一锅煮坏的食物也暗藏杀机。但汇总这些死法之后，才发现有的死法是那么的离奇。我们不妨来看一下。\n死法1：疯狗跑死\n疯狗追来的第一个念头是什么？没错就是一个字——“快跑！！！”\n然而还是双腿难敌四脚，哦不！好多脚······\n这种心情就是这样。\n死法2：大脚踩死\n一不留神遇到了BOSS怎么办？没错，还是一个字——“快跑！！！”（PS：举一反三，学的真快。）', 'likeCount': 39, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '盘点《饥荒》各种离奇死法第一期', 'groupId': 305, 'isLike': False, 'commentCount': 94, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-22 17:18'}, {'isDelete': False, 'isActivity': 0, 'topicId': 815301, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://7xvmjm.com2.z0.glb.qiniucdn.com/Fj2jejqKcKZqEHgPUSu5vY_NQlgv', 'http://7xvmjm.com2.z0.glb.qiniucdn.com/Fomw0EGg8Y1RsWbMp5mAbGEFqp7W', 'http://7xvmjm.com2.z0.glb.qiniucdn.com/FqCK5XtooBauvZgR0pf683uBawSW'], 'isShowFoot': True, 'scanCount': 4944, 'isDigest': 0, 'topicAction': {'actionData': {'param': '815301'}, 'actionTarget': '/forum_app/topic?topic_id=815301&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=14&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2786273, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '饥荒游戏很多怪物需要打？那么怎么打怪无伤？部分玩家知道的不全面，下面给大家带来了饥荒全怪物无伤走位打法汇总，下面随小编一起来看下吧。\n饥荒全怪物无伤走位打法汇总：', 'likeCount': 14, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '《饥荒》全怪物无伤走位打法', 'groupId': 305, 'isLike': False, 'commentCount': 10, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-22 17:09'}, {'isDelete': False, 'isActivity': 0, 'topicId': 815088, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://img1.gamersky.com/image2017/01/20170120_zh_277_8/image001_S.jpg'], 'isShowFoot': True, 'scanCount': 5790, 'isDigest': 0, 'topicAction': {'actionData': {'param': '815088'}, 'actionTarget': '/forum_app/topic?topic_id=815088&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=15&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2780680, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '《饥荒》中的刷肉机是很有用的，今天就为大家带来了饥荒浣熊刷肉机制作原理图文说明，让大家看看这位玩家的浣熊刷肉机是怎么做的，还不会的朋友一起来学习下吧。\n熟悉游戏的小伙伴很容易就看懂刷肉机的原理了，下面来详细介绍一下，围造内外圈两圈栅栏，我觉得这个大小刚好，内圈建两个门，方便出入，兔子窝是草原天然形成的密集地方图示有四个（隐藏的在内圈栅栏上方），鼹鼠窝是移植的，锤子敲击鼹鼠，将活鼹鼠放到两圈内三天左右会生成鼹鼠窝，花移植的，捕虫网捕捉，蝴蝶右键种植。\n浣熊猫会主动攻击，兔子，鼹鼠，蜜蜂，蝴蝶，咕噜米，草蜥蜴（不推荐用浣熊猫清理草蜥蜴，将草场围起来，保守估计一百株以内的草场只会变异', 'likeCount': 10, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '《饥荒》浣熊刷肉机制作原理图文说明 浣熊刷肉机怎么做', 'groupId': 305, 'isLike': False, 'commentCount': 14, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-21 15:02'}, {'isDelete': False, 'isActivity': 0, 'topicId': 815083, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://img1.gamersky.com/image2017/01/20170121_zh_277_8/image001_S.jpg', 'http://img1.gamersky.com/image2017/01/20170121_zh_277_8/image003_S.jpg', 'http://img1.gamersky.com/image2017/01/20170121_zh_277_8/image005_S.jpg'], 'isShowFoot': True, 'scanCount': 4500, 'isDigest': 0, 'topicAction': {'actionData': {'param': '815083'}, 'actionTarget': '/forum_app/topic?topic_id=815083&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=16&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2780587, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '《饥荒》大力士这个人物大家喜欢吗？今天就为大家带来了饥荒大力士新手生存战报，让大家看看这位玩家是怎么使用大力士的，还不会的朋友一起来学习下吧。\n大力士是我最喜欢的角色，吃饱了一个回旋镖能打死火鸡，就用他了。\nMOD：地图插件（不是地图全开）、行为排队论、状态常显、四格背包、七彩萤火虫、食物属性、智能烹饪锅\n发现一只野生的猪人\n打蜘蛛巢的时候光顾截图，被咬掉70滴血\n战利品\n发现麦斯威尔雕像\n举着火把探图\n晚上就是用来点火的\n不要问我的血是怎么少的\n发现落水洞人口，先不砸，出来蝙蝠就', 'likeCount': 6, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '《饥荒》大力士新手生存战报 大力士怎么生存', 'groupId': 305, 'isLike': False, 'commentCount': 16, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-21 14:48'}, {'isDelete': False, 'isActivity': 0, 'topicId': 814262, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://joymepic.joyme.com/wiki/images/starve/0/03/%E8%9C%9C%E8%9C%82.png?v=201701191207', 'http://joymepic.joyme.com/wiki/images/starve/2/2e/%E6%9D%80%E4%BA%BA%E8%9C%82.png?v=201701191207', 'http://joymepic.joyme.com/wiki/images/starve/6/62/%E7%86%9F%E6%82%89%E8%BF%9911%E7%82%B9_%E5%8F%AF%E4%BB%A5%E8%AE%A9%E4%BD%A0%E5%9C%A8%E9%A5%A5%E8%8D%92%E6%98%A5%E5%AD%A3%E6%B4%BB%E7%9A%84%E6%9B%B4%E5%A5%BD.jpg?v=201701191207'], 'isShowFoot': True, 'scanCount': 4017, 'isDigest': 0, 'topicAction': {'actionData': {'param': '814262'}, 'actionTarget': '/forum_app/topic?topic_id=814262&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=17&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2768417, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '春季生存11点技巧\n蜜蜂及食物问题\n1.（蜜蜂）问题。春季外出采蜜的蜜蜂，全部显示为红色，表示有攻击性。如果用捕虫网抓到一只，会发现抓到的蜜蜂仍为普通黄色蜜蜂(可以用来做蜂巢的那种)。\n但是这并不代表春季的所有红色蜜蜂都是如此。如果你攻击蜂巢，或者在蜂巢附近对采蜜蜜蜂有敌对举动，从蜂巢飞出来的仍是正常杀人蜂(被抓住后也是红色)。\n春季貌似唯一的食物减益就是兔子洞坍塌，对于大部分人来说没什么区别。\n对于新手来说，尽快摆脱【兔子洞是主要食物来源】这个不靠谱的习惯，尽量向【（兔子）是辅助肉食来源，是可有可无填充物性质的食材】这个观念转变是非常重要的。\n几个比较可', 'likeCount': 9, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '熟悉这11点 可以让你在饥荒春季活的更好', 'groupId': 305, 'isLike': False, 'commentCount': 4, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-19 15:25'}, {'isDelete': False, 'isActivity': 0, 'topicId': 814166, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://joymepic.joyme.com/wiki/images/starve/5/5a/%E6%AD%A6%E5%99%A8%E5%A4%A7%E5%85%A822.jpg?v=201701181628', 'http://image.135editor.com/files/users/173/1730866/201701/ynJx74Z3_DDvq.png', 'http://image.135editor.com/files/users/173/1730866/201701/jwfQfcJs_t9UB.png'], 'isShowFoot': True, 'scanCount': 7146, 'isDigest': 0, 'topicAction': {'actionData': {'param': '814166'}, 'actionTarget': '/forum_app/topic?topic_id=814166&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=18&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2767160, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '在《饥荒》当中有许多称手的兵器值得大家拥有，而在众多的武器当中，有强有弱都是相对的。这里我们为大家梳理一下饥荒最强武器排行推荐。希望对大家有所帮助。\n武器排行详情\n文章转自着迷网“老奶奶”分享', 'likeCount': 14, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '饥荒最强武器排行', 'groupId': 305, 'isLike': False, 'commentCount': 18, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-19 11:49'}, {'isDelete': False, 'isActivity': 0, 'topicId': 813968, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://joymepic.joyme.com/wiki/images/starve/4/44/%E5%A4%A7%E7%90%86%E7%9F%B3.png?v=201701181401', 'http://joymepic.joyme.com/wiki/images/starve/c/c0/%E6%9C%BA%E6%A2%B0%E6%88%98%E8%BD%A6.png?v=201701181401', 'http://joymepic.joyme.com/wiki/images/starve/2/24/%E5%8F%91%E6%9D%A1%E9%AA%91%E5%A3%AB.png?v=201701181401'], 'isShowFoot': True, 'scanCount': 3474, 'isDigest': 0, 'topicAction': {'actionData': {'param': '813968'}, 'actionTarget': '/forum_app/topic?topic_id=813968&amp;topic_type=8&amp;rp=40003&amp;rpo=0&amp;rcpo=19&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2763228, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '1.找到全图随机散落的可疑的（大理石）碎片；\n2.想办法（最后牛运）将可疑的大理石碎片运到大理石雕像（战车犀牛模样的大理石雕像群，事先要用矿稿敲掉外壳）修复大理石雕像（分别是（机械战车），（机械主教）48px，（发条骑士））；\n3.在月圆的夜晚到修复大理石雕像处用矿稿砸掉修复的大理石，会掉落战车，主教，（发条骑士）图纸，雕像会复活为机械怪杀之即可有齿轮；\n4.在基地做出陶艺转盘，将得到战车，主教，机械马的图纸放入，用石砖或者大理石放在陶艺转盘上制作出三者的棋子；\n5.在新月（新月指新月指1+20*n=整数\nn=整数不能为0）的晚上用锤子敲掉三个棋子即可触发', 'likeCount': 4, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '饥荒联机影子怪BOSS召唤方法及打法', 'groupId': 305, 'isLike': False, 'commentCount': 7, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-18 17:59'}], 'groupName': '饥荒', 'loadMoreUrl': '/forum_app/group4?group_id=305&amp;sort_rule=0&amp;page=1', 'headCard': [{'isConcern': False, 'title': '饥荒', 'groupId': 305, 'joinCount': 8961, 'followCount': 8961, 'cardId': 135, 'icon': 'http://7xleaj.com1.z0.glb.clouddn.com/150_150%E9%A5%A5%E8%8D%92icon.png', 'pic': 'http://7xvmjm.com1.z0.glb.clouddn.com//6e51b9127b65c97455c98907b0ea4c0b', 'desc': ''}, {'isDigest': 0, 'isShowHead': True, 'isActivity': 0, 'topicId': 797813, 'isTop': 1, 'action': {'actionData': {'param': '797813'}, 'actionTarget': '/forum_app/topic?topic_id=797813', 'actionType': 102}, 'postTitle': '《饥荒》全人物排行介绍及玩法建议', 'isShowFoot': False, 'cardId': 122, 'isHot': 0}, {'isDigest': 0, 'isShowHead': False, 'isActivity': 0, 'topicId': 799763, 'isTop': 1, 'action': {'actionData': {'param': '799763'}, 'actionTarget': '/forum_app/topic?topic_id=799763', 'actionType': 102}, 'postTitle': '《饥荒》食谱推荐生存技巧及四季BOSS打法 饥荒新手攻略', 'isShowFoot': False, 'cardId': 122, 'isHot': 0}, {'isDigest': 0, 'isShowHead': False, 'isActivity': 0, 'topicId': 800836, 'isTop': 1, 'action': {'actionData': {'param': '800836'}, 'actionTarget': '/forum_app/topic?topic_id=800836', 'actionType': 102}, 'postTitle': '饥荒：被忽视的神器 最好围墙推荐', 'isShowFoot': False, 'cardId': 122, 'isHot': 0}, {'isDigest': 0, 'isShowHead': False, 'isActivity': 0, 'topicId': 801086, 'isTop': 1, 'action': {'actionData': {'param': '801086'}, 'actionTarget': '/forum_app/topic?topic_id=801086', 'actionType': 102}, 'postTitle': '《饥荒》心形基地建造布局视频教程 饥荒心形基地怎么建', 'isShowFoot': False, 'cardId': 122, 'isHot': 0}, {'isDigest': 0, 'isShowHead': False, 'isActivity': 0, 'topicId': 820766, 'isTop': 1, 'action': {'actionData': {'param': '820766'}, 'actionTarget': '/forum_app/topic?topic_id=820766', 'actionType': 102}, 'postTitle': '饥荒最新MOD功能？嘘！小点声，一般人我不告诉他', 'isShowFoot': True, 'cardId': 122, 'isHot': 1}], 'isForum': True, 'pageTitle': '饥荒', 'updateCount': 1, 'tabCard': {'isShowFoot': True, 'cardId': 15, 'items': [{'pageType': 1, 'isFocus': False, 'title': '精选', 'action': {'actionTarget': '/forum_app/group4?group_id=305&amp;sort_rule=0', 'actionType': 3}}, {'pageType': 1, 'isFocus': False, 'title': '最新', 'action': {'actionTarget': '/forum_app/group4?group_id=305&amp;sort_rule=1', 'actionType': 3}}], 'focusIndex': 0}}}, 'tips': {}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_forum_index: 测试社区首页</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.3')" >
+        pass</a>
+
+    <div id='div_pt1.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.3: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '成功', 'isShow': False}, 'page': {'actionParam': '社区-求MOD-精选', 'cards': [], 'refreshUrl': '/forum_app/index4?group_id=318&amp;sort_rule=0&amp;page=0', 'pluginVersion': 2, 'loadMoreUrl': '', 'isForum': True, 'pageTitle': '', 'pageId': 40001, 'updateCount': 1}}, 'tips': {}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft1.4' class='none'>
+    <td class='failCase'><div class='testcase'>test_forum_topic: 测试帖子详情页</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.4')" >
+        fail</a>
+
+    <div id='div_ft1.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.4: {'msg': '系统异常', 'rc': 21, 'data': {'showMsg': {'msg': '系统异常', 'isShow': False}}, 'tips': {}}
+Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_forum.py", line 58, in test_forum_topic
+    self.assertEqual(response.status_code, 200)
+AssertionError: 400 != 200
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_login.TestLogin: 登录模块测试</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td>2</td>
+    <td><a href="javascript:showClassDetail('c2',2)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_login: 测试登录</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        error</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_login.py", line 102, in test_login
+    self.result = response.json()
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/site-packages/requests/models.py", line 866, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_login: 测试登录</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.2')" >
+        error</a>
+
+    <div id='div_ft2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.2: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_login.py", line 107, in tearDown
+    print(self.result)
+AttributeError: 'TestLogin' object has no attribute 'result'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_magic_box.TestMagicBox: 魔盒游戏测试</td>
+    <td>18</td>
+    <td>0</td>
+    <td>2</td>
+    <td>16</td>
+    <td><a href="javascript:showClassDetail('c3',18)">Detail</a></td>
+</tr>
+
+<tr id='ft3.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_duplicate_game: 获取开小号游戏列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        fail</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.1: 接口请求发生错误,HTTP状态码为404
+Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 118, in test_duplicate_game
+    self.assertEqual(response.status_code, 200, '请求成功')
+AssertionError: 404 != 200 : 请求成功
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test_game_view_page: 游戏详情页测试</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.2')" >
+        error</a>
+
+    <div id='div_ft3.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.2: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 103, in test_game_view_page
+    self.result = response.json()
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/site-packages/requests/models.py", line 866, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_game_view_page: 游戏详情页测试</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.3')" >
+        error</a>
+
+    <div id='div_ft3.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.3: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 132, in tearDown
+    print(self.result)
+AttributeError: 'TestMagicBox' object has no attribute 'result'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test_get_ad_config: 测试获取广告位信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.4')" >
+        error</a>
+
+    <div id='div_ft3.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.4: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 94, in test_get_ad_config
+    self.result = response.json()
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/site-packages/requests/models.py", line 866, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test_get_ad_config: 测试获取广告位信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.5')" >
+        error</a>
+
+    <div id='div_ft3.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.5: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 132, in tearDown
+    print(self.result)
+AttributeError: 'TestMagicBox' object has no attribute 'result'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.6' class='none'>
+    <td class='failCase'><div class='testcase'>test_get_box_game: 获取魔盒游戏详细信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.6')" >
+        fail</a>
+
+    <div id='div_ft3.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.6: 无返回数据,HTTP状态码为404
+Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 70, in test_get_box_game
+    self.assertEqual(response.status_code, 200)
+AssertionError: 404 != 200
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test_get_default_keyword: 获取搜索框默认关键词</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.7')" >
+        error</a>
+
+    <div id='div_ft3.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.7: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 80, in test_get_default_keyword
+    self.result = response.json()
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/site-packages/requests/models.py", line 866, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test_get_default_keyword: 获取搜索框默认关键词</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.8')" >
+        error</a>
+
+    <div id='div_ft3.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.8: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 132, in tearDown
+    print(self.result)
+AttributeError: 'TestMagicBox' object has no attribute 'result'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test_get_game_list: 获取魔盒游戏最热列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.9')" >
+        error</a>
+
+    <div id='div_ft3.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.9: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 125, in test_get_game_list
+    self.result = response.json()
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/site-packages/requests/models.py", line 866, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test_get_game_list: 获取魔盒游戏最热列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.10')" >
+        error</a>
+
+    <div id='div_ft3.10' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.10').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.10: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 132, in tearDown
+    print(self.result)
+AttributeError: 'TestMagicBox' object has no attribute 'result'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.11' class='none'>
+    <td class='errorCase'><div class='testcase'>test_hot_games: 获取搜索页推荐的游戏列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.11')" >
+        error</a>
+
+    <div id='div_ft3.11' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.11').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.11: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 87, in test_hot_games
+    self.result = response.json()
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/site-packages/requests/models.py", line 866, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.12' class='none'>
+    <td class='errorCase'><div class='testcase'>test_hot_games: 获取搜索页推荐的游戏列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.12')" >
+        error</a>
+
+    <div id='div_ft3.12' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.12').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.12: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 132, in tearDown
+    print(self.result)
+AttributeError: 'TestMagicBox' object has no attribute 'result'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.13' class='none'>
+    <td class='errorCase'><div class='testcase'>test_plugin_version_info: 获取视频插件升级信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.13')" >
+        error</a>
+
+    <div id='div_ft3.13' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.13').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.13: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 39, in test_plugin_version_info
+    self.result = response.json()
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/site-packages/requests/models.py", line 866, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.14' class='none'>
+    <td class='errorCase'><div class='testcase'>test_plugin_version_info: 获取视频插件升级信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.14')" >
+        error</a>
+
+    <div id='div_ft3.14' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.14').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.14: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 132, in tearDown
+    print(self.result)
+AttributeError: 'TestMagicBox' object has no attribute 'result'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.15' class='none'>
+    <td class='errorCase'><div class='testcase'>test_recommond_game: 获取下载页面推荐的游戏</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.15')" >
+        error</a>
+
+    <div id='div_ft3.15' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.15').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.15: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 46, in test_recommond_game
+    self.result = response.json()
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/site-packages/requests/models.py", line 866, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.16' class='none'>
+    <td class='errorCase'><div class='testcase'>test_recommond_game: 获取下载页面推荐的游戏</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.16')" >
+        error</a>
+
+    <div id='div_ft3.16' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.16').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.16: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 132, in tearDown
+    print(self.result)
+AttributeError: 'TestMagicBox' object has no attribute 'result'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.17' class='none'>
+    <td class='errorCase'><div class='testcase'>test_update_info: 获取升级信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.17')" >
+        error</a>
+
+    <div id='div_ft3.17' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.17').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.17: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 32, in test_update_info
+    self.result = response.json()
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/site-packages/requests/models.py", line 866, in json
+    return complexjson.loads(self.text, **kwargs)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/__init__.py", line 319, in loads
+    return _default_decoder.decode(s)
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/liuyu/.pyenv/versions/3.5.1/lib/python3.5/json/decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.18' class='none'>
+    <td class='errorCase'><div class='testcase'>test_update_info: 获取升级信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.18')" >
+        error</a>
+
+    <div id='div_ft3.18' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.18').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft3.18: Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_magic_box.py", line 132, in tearDown
+    print(self.result)
+AttributeError: 'TestMagicBox' object has no attribute 'result'
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>test_mine.TestMine: 测试我的相关接口</td>
+    <td>9</td>
+    <td>7</td>
+    <td>1</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c4',9)">Detail</a></td>
+</tr>
+
+<tr id='ft4.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_edit_profile: 修改用户资料</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.1')" >
+        fail</a>
+
+    <div id='div_ft4.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.1: {'msg': '系统异常', 'rc': 21, 'data': {'showMsg': {'msg': '系统异常', 'isShow': False}}, 'tips': {}}
+Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_mine.py", line 72, in test_edit_profile
+    self.assertEqual(response.status_code, 200)
+AssertionError: 500 != 200
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_my_collection: 我的收藏</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.2')" >
+        pass</a>
+
+    <div id='div_pt4.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.2: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '成功', 'isShow': False}, 'page': {'cards': [{'superscriptId': 0, 'description': '打造一个属于自己的独一无二的战斗联盟', 'subTitle': '93.4MB | 下载人数 1,000,000+', 'action': {'actionData': {'param': '2000'}, 'actionTarget': '/view/page?id=2000&amp;pa=5a9b1121&amp;rp=40006&amp;rpo=0&amp;rcpo=0&amp;rc=4', 'actionType': 1, 'param': '5a9b1121'}, 'downloadInfo': {'ggVerCode': 1605251138, 'supportPlugin': False, 'size': 97924055, 'downloadLinks': {'webview': [], 'direct': [{'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=d8b3c202b5f614f444b2953a8002c597', 'desc': '', 'name': '直接下载'}], 'client': []}, 'gpuRenderers': [1], 'dependCheck': False, 'minSdk': 15, 'supportBackup': False, 'downloadType': 1, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=d8b3c202b5f614f444b2953a8002c597', 'gameName': '部落冲突:皇室战争【国服】', 'iconUrl': 'http://img.wdjimg.com/mms/icon/v1/b/8a/ae23a0c8e05049c0ed61404ad96aa8ab_256_256.png', 'supportAccount': False, 'verCode': 85, 'supportBox': False, 'dependGooglePlay': False, 'pluginCount': 0, 'verName': '1.3.2', 'gameId': '5a9b1121', 'pkgName': 'com.supercell.clashroyale.uc', 'supportDuplicate': False, 'supportCenterPlugin': False}, 'title': '部落冲突:皇室战争【国服】', 'isShowFoot': False, 'cardId': 4, 'iconUrl': 'http://img.wdjimg.com/mms/icon/v1/b/8a/ae23a0c8e05049c0ed61404ad96aa8ab_256_256.png'}, {'superscriptId': 0, 'description': '无尽畅爽跨服群P的ARPG魔幻暴力动作手游。', 'subTitle': '122.2MB | 下载人数 少于10,000', 'action': {'actionData': {'param': '2000'}, 'actionTarget': '/view/page?id=2000&amp;pa=7fc0a2a5&amp;rp=40006&amp;rpo=0&amp;rcpo=1&amp;rc=4', 'actionType': 1, 'param': '7fc0a2a5'}, 'downloadInfo': {'ggVerCode': 1488347613, 'supportPlugin': False, 'size': 128186280, 'downloadLinks': {'webview': [], 'direct': [{'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=58677a0b239cacb96100ec14a8f75487', 'desc': '', 'name': '直接下载'}], 'client': []}, 'gpuRenderers': [1], 'dependCheck': False, 'minSdk': 9, 'supportBackup': False, 'downloadType': 1, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=58677a0b239cacb96100ec14a8f75487', 'gameName': '永恒奇迹【BT】', 'iconUrl': 'http://7xjxl2.com1.z0.glb.clouddn.com/yhqjicon.png', 'supportAccount': True, 'verCode': 1, 'supportBox': False, 'dependGooglePlay': False, 'pluginCount': 0, 'verName': '1.0.1', 'gameId': '7fc0a2a5', 'pkgName': 'com.junhai.yhqj.cgamex', 'supportDuplicate': False, 'supportCenterPlugin': False}, 'title': '永恒奇迹【BT】', 'isShowFoot': False, 'cardId': 4, 'iconUrl': 'http://7xjxl2.com1.z0.glb.clouddn.com/yhqjicon.png'}, {'superscriptId': 5, 'description': '只要将无畏的剑刃刺穿敌人的胸膛，便能成为真正的勇者', 'subTitle': '93.9MB | 下载人数 少于10,000', 'action': {'actionData': {'param': '2000'}, 'actionTarget': '/view/page?id=2000&amp;pa=995147c9&amp;rp=40006&amp;rpo=0&amp;rcpo=2&amp;rc=4', 'actionType': 1, 'param': '995147c9'}, 'downloadInfo': {'ggVerCode': 1487310435, 'supportPlugin': True, 'size': 98493356, 'downloadLinks': {'webview': [], 'direct': [{'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=9bae4591146abe1237385932f9446d4a', 'desc': '', 'name': '直接下载'}], 'client': []}, 'gpuRenderers': [1], 'dependCheck': False, 'minSdk': 9, 'supportBackup': False, 'downloadType': 1, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=9bae4591146abe1237385932f9446d4a', 'gameName': '不思议迷宫', 'iconUrl': 'https://cdn2.yyhudong.com/ggziyuan/20170217/不思议迷宫icon.png', 'supportAccount': True, 'verCode': 29, 'supportBox': False, 'dependGooglePlay': False, 'pluginCount': 2, 'verName': '0.6.170113.05-0.0.22', 'gameId': '995147c9', 'pkgName': 'com.leiting.gumballs.leiting', 'supportDuplicate': True, 'supportCenterPlugin': True}, 'title': '不思议迷宫', 'isShowFoot': False, 'cardId': 4, 'iconUrl': 'https://cdn2.yyhudong.com/ggziyuan/20170217/不思议迷宫icon.png'}, {'superscriptId': 0, 'description': '在这个危险的街机动作游戏充满了大量的剑，武器，杀死和不可否认的兴奋。', 'subTitle': '70.1MB | 下载人数 少于10,000', 'action': {'actionData': {'param': '2000'}, 'actionTarget': '/view/page?id=2000&amp;pa=714d0879&amp;rp=40006&amp;rpo=0&amp;rcpo=3&amp;rc=4', 'actionType': 1, 'param': '714d0879'}, 'downloadInfo': {'ggVerCode': 1492571695, 'supportPlugin': True, 'size': 73548862, 'downloadLinks': {'webview': [], 'direct': [{'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=d2644d6f6166f657a32826b0f676a241', 'desc': '', 'name': '直接下载'}], 'client': []}, 'gpuRenderers': [1], 'dependCheck': True, 'minSdk': 16, 'supportBackup': False, 'downloadType': 1, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=d2644d6f6166f657a32826b0f676a241', 'gameName': '火柴人传奇', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-9c250e4809eec456', 'supportAccount': True, 'verCode': 57, 'supportBox': True, 'dependGooglePlay': False, 'pluginCount': 0, 'verName': '1.1.10', 'gameId': '714d0879', 'pkgName': 'com.zitga.ninja.stickman.legends', 'supportDuplicate': False, 'supportCenterPlugin': True}, 'title': '火柴人传奇', 'isShowFoot': False, 'cardId': 4, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-9c250e4809eec456'}, {'superscriptId': 5, 'description': '集跑酷、射击于一体的休闲游戏。', 'subTitle': '82.4MB | 下载人数 10,000+', 'action': {'actionData': {'param': '2000'}, 'actionTarget': '/view/page?id=2000&amp;pa=0f16426d&amp;rp=40006&amp;rpo=0&amp;rcpo=4&amp;rc=4', 'actionType': 1, 'param': '0f16426d'}, 'downloadInfo': {'ggVerCode': 1487909980, 'supportPlugin': True, 'size': 86389047, 'downloadLinks': {'webview': [], 'direct': [{'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=40a2f329fdb33a5ec33908dabe2e1bad', 'desc': '', 'name': '直接下载'}], 'client': []}, 'gpuRenderers': [1], 'dependCheck': True, 'minSdk': 15, 'supportBackup': False, 'downloadType': 1, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=40a2f329fdb33a5ec33908dabe2e1bad', 'gameName': '疯狂喷气机', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-5d66666d38209e8f', 'supportAccount': True, 'verCode': 1921086, 'supportBox': True, 'dependGooglePlay': False, 'pluginCount': 1, 'verName': '1.9.21', 'gameId': '0f16426d', 'pkgName': 'com.halfbrick.jetpackjoyride', 'supportDuplicate': False, 'supportCenterPlugin': True}, 'title': '疯狂喷气机', 'isShowFoot': False, 'cardId': 4, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-5d66666d38209e8f'}, {'superscriptId': 5, 'description': '顶级RPG盛宴不容错过', 'subTitle': '2.0GB | 下载人数 少于10,000', 'action': {'actionData': {'param': '2000'}, 'actionTarget': '/view/page?id=2000&amp;pa=501c95b6&amp;rp=40006&amp;rpo=0&amp;rcpo=5&amp;rc=4', 'actionType': 1, 'param': '501c95b6'}, 'downloadInfo': {'ggVerCode': 1486624809, 'supportPlugin': True, 'size': 2147483647, 'downloadLinks': {'webview': [], 'direct': [{'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=73ba4ee2c29944dc41cb926b511b946c', 'desc': '', 'name': '直接下载'}], 'client': []}, 'gpuRenderers': [1], 'dependCheck': True, 'minSdk': 14, 'supportBackup': False, 'downloadType': 1, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=73ba4ee2c29944dc41cb926b511b946c', 'gameName': '混沌之戒3汉化版', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-fd7d1e1dc38012cb', 'supportAccount': True, 'verCode': 110, 'supportBox': True, 'dependGooglePlay': False, 'pluginCount': 2, 'verName': '1.1.0', 'gameId': '501c95b6', 'pkgName': 'com.square_enix.chaosrings3gp', 'supportDuplicate': False, 'supportCenterPlugin': True}, 'title': '混沌之戒3汉化版', 'isShowFoot': False, 'cardId': 4, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-fd7d1e1dc38012cb'}, {'superscriptId': 5, 'description': '跟小黄人一起赛跑吧~', 'subTitle': '119.2MB | 下载人数 少于10,000', 'action': {'actionData': {'param': '2000'}, 'actionTarget': '/view/page?id=2000&amp;pa=630b243c&amp;rp=40006&amp;rpo=0&amp;rcpo=6&amp;rc=4', 'actionType': 1, 'param': '630b243c'}, 'downloadInfo': {'ggVerCode': 1486631417, 'supportPlugin': True, 'size': 124994179, 'downloadLinks': {'webview': [], 'direct': [{'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=c990a36cac7fce35fd0cc362e31ef435', 'desc': '', 'name': '直接下载'}], 'client': []}, 'gpuRenderers': [1], 'dependCheck': False, 'minSdk': 9, 'supportBackup': False, 'downloadType': 1, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=c990a36cac7fce35fd0cc362e31ef435', 'gameName': '神偷奶爸：小黄人快跑', 'iconUrl': 'https://cdn2.yyhudong.com/ggziyuan/20170209/xhricon.png', 'supportAccount': True, 'verCode': 4200000, 'supportBox': False, 'dependGooglePlay': False, 'pluginCount': 1, 'verName': '4.2.0k', 'gameId': '630b243c', 'pkgName': 'com.gameloft.android.ANMP.GloftDMCN', 'supportDuplicate': False, 'supportCenterPlugin': True}, 'title': '神偷奶爸：小黄人快跑', 'isShowFoot': False, 'cardId': 4, 'iconUrl': 'https://cdn2.yyhudong.com/ggziyuan/20170209/xhricon.png'}, {'superscriptId': 0, 'description': '游戏中你将可以扮演上帝的角色，创造出一整个世界。', 'subTitle': '50.7MB | 下载人数 少于10,000', 'action': {'actionData': {'param': '2000'}, 'actionTarget': '/view/page?id=2000&amp;pa=62780061&amp;rp=40006&amp;rpo=0&amp;rcpo=7&amp;rc=4', 'actionType': 1, 'param': '62780061'}, 'downloadInfo': {'ggVerCode': 1488958750, 'supportPlugin': True, 'size': 53119509, 'downloadLinks': {'webview': [], 'direct': [{'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=fac8ed7701e195e39c75d7918b0eaf99', 'desc': '', 'name': '直接下载'}], 'client': []}, 'gpuRenderers': [1], 'dependCheck': True, 'minSdk': 10, 'supportBackup': False, 'downloadType': 1, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=fac8ed7701e195e39c75d7918b0eaf99', 'gameName': '涂鸦上帝：闪电', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-5480df70ea0c231d', 'supportAccount': True, 'verCode': 1012136, 'supportBox': True, 'dependGooglePlay': False, 'pluginCount': 0, 'verName': '1.3.6', 'gameId': '62780061', 'pkgName': 'joybits.doodlegodblitz', 'supportDuplicate': False, 'supportCenterPlugin': True}, 'title': '涂鸦上帝：闪电', 'isShowFoot': False, 'cardId': 4, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-5480df70ea0c231d'}, {'superscriptId': 0, 'description': '点燃ACG动作之魂！', 'subTitle': '884.3MB | 下载人数 10,000+', 'action': {'actionData': {'param': '2000'}, 'actionTarget': '/view/page?id=2000&amp;pa=e35d9b5a&amp;rp=40006&amp;rpo=0&amp;rcpo=8&amp;rc=4', 'actionType': 1, 'param': 'e35d9b5a'}, 'downloadInfo': {'ggVerCode': 1491992202, 'supportPlugin': True, 'size': 927299072, 'downloadLinks': {'webview': [], 'direct': [{'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=cdb941fe88ea5adb032f001932229a8f', 'desc': '', 'name': '直接下载'}], 'client': []}, 'gpuRenderers': [1], 'dependCheck': False, 'minSdk': 14, 'supportBackup': False, 'downloadType': 1, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=cdb941fe88ea5adb032f001932229a8f', 'gameName': '崩坏3【热门】', 'iconUrl': 'http://image.game.uc.cn/2016/9/12/14241812.png', 'supportAccount': True, 'verCode': 41, 'supportBox': False, 'dependGooglePlay': False, 'pluginCount': 0, 'verName': '1.4.0', 'gameId': 'e35d9b5a', 'pkgName': 'com.miHoYo.bh3.uc', 'supportDuplicate': True, 'supportCenterPlugin': True}, 'title': '崩坏3【热门】', 'isShowFoot': False, 'cardId': 4, 'iconUrl': 'http://image.game.uc.cn/2016/9/12/14241812.png'}, {'superscriptId': 0, 'description': '一款单身狗专属游戏。', 'subTitle': '32.9MB | 下载人数 少于10,000', 'action': {'actionData': {'param': '2000'}, 'actionTarget': '/view/page?id=2000&amp;pa=efb05c6e&amp;rp=40006&amp;rpo=0&amp;rcpo=9&amp;rc=4', 'actionType': 1, 'param': 'efb05c6e'}, 'downloadInfo': {'ggVerCode': 1489460818, 'supportPlugin': True, 'size': 34502338, 'downloadLinks': {'webview': [], 'direct': [{'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=a87509f6e134a369d68ceb350a1e0890', 'desc': '', 'name': '直接下载'}], 'client': []}, 'gpuRenderers': [1], 'dependCheck': True, 'minSdk': 10, 'supportBackup': False, 'downloadType': 1, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=a87509f6e134a369d68ceb350a1e0890', 'gameName': '现充都爆炸吧', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-016c3d887f307219', 'supportAccount': True, 'verCode': 5, 'supportBox': True, 'dependGooglePlay': False, 'pluginCount': 0, 'verName': '1.0.4', 'gameId': 'efb05c6e', 'pkgName': 'com.ueharalabo.RiaBom', 'supportDuplicate': False, 'supportCenterPlugin': True}, 'title': '现充都爆炸吧', 'isShowFoot': False, 'cardId': 4, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-016c3d887f307219'}], 'refreshUrl': '/forum_app/my_collection?my_type=game', 'pluginVersion': 2, 'loadMoreUrl': '/forum_app/my_collection?my_type=game&amp;page=1&amp;offset=10', 'isForum': True, 'pageTitle': '', 'pageId': 40006}}, 'tips': {}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft4.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test_my_comment_game: 我的游戏,我评论过的游戏</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft4.3')" >
+        error</a>
+
+    <div id='div_ft4.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft4.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft4.3: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '成功', 'isShow': False}, 'page': {'cards': [{'message': 'jjzjjzz', 'comment_count': 0, 'post_detail_url': '/forum_app/post_detail?post_id=3001481', 'post_id': 3001481, 'game_icon': 'http://7xleaj.com1.z0.glb.clouddn.com/-adccf48d8639880f', 'game_name': "Don't Starve: Pocket Edition", 'game_id': 'ba8f4ac4', 'game_detail_url': '/view/page?id=2000&amp;pa=ba8f4ac4', 'time': '03-29 16:23'}, {'message': '[懒得理你][懒得理你][doge][鼓掌][鼓掌][太开心]', 'comment_count': 0, 'post_detail_url': '/forum_app/post_detail?post_id=3001475', 'post_id': 3001475, 'game_icon': 'http://7xjxl2.com1.z0.glb.clouddn.com/yhqjicon.png', 'game_name': '永恒奇迹【BT】', 'game_id': '7fc0a2a5', 'game_detail_url': '/view/page?id=2000&amp;pa=7fc0a2a5', 'time': '03-29 15:28'}, {'message': 'gggv', 'comment_count': 0, 'post_detail_url': '/forum_app/post_detail?post_id=3001474', 'post_id': 3001474, 'game_icon': 'http://7xjxl2.com1.z0.glb.clouddn.com/yhqjicon.png', 'game_name': '永恒奇迹【BT】', 'game_id': '7fc0a2a5', 'game_detail_url': '/view/page?id=2000&amp;pa=7fc0a2a5', 'time': '03-29 15:27'}, {'message': '哦送哦热iOS明信', 'comment_count': 0, 'post_detail_url': '/forum_app/post_detail?post_id=3001445', 'post_id': 3001445, 'game_icon': 'http://7xleaj.com1.z0.glb.clouddn.com/-9f01fa071e0b2662', 'game_name': ' Arrow.io(beta) ', 'game_id': 'e1d36a49', 'game_detail_url': '/view/page?id=2000&amp;pa=e1d36a49', 'time': '03-17 19:50'}, {'message': '咯弄', 'comment_count': 0, 'post_detail_url': '/forum_app/post_detail?post_id=3001429', 'post_id': 3001429, 'game_icon': 'http://7xleaj.com1.z0.glb.clouddn.com/-821f722ce3da6c9b', 'game_name': ' Hell, The Dungeon Again! ', 'game_id': 'ab245880', 'game_detail_url': '/view/page?id=2000&amp;pa=ab245880', 'time': '03-17 18:10'}, {'message': 'nmxkxkx', 'comment_count': 0, 'post_detail_url': '/forum_app/post_detail?post_id=3001408', 'post_id': 3001408, 'game_icon': 'http://img.wdjimg.com/mms/icon/v1/2/33/b9cc8a6cf4f9775e7d882ef9e6b33332_256_256.png', 'game_name': '阴阳师', 'game_id': '2bdec7e8', 'game_detail_url': '/view/page?id=2000&amp;pa=2bdec7e8', 'time': '03-17 15:00'}, {'message': 'jkknnk', 'comment_count': 0, 'post_detail_url': '/forum_app/post_detail?post_id=3001361', 'post_id': 3001361, 'game_icon': 'http://7xleaj.com1.z0.glb.clouddn.com/-cd98cdc31b3b368c', 'game_name': '鋼琴塊2™（別踩白塊兒2）', 'game_id': 'a6479f80', 'game_detail_url': '/view/page?id=2000&amp;pa=a6479f80', 'time': '03-16 19:11'}, {'message': '哦明敏共鸣', 'comment_count': 0, 'post_detail_url': '/forum_app/post_detail?post_id=3001333', 'post_id': 3001333, 'game_icon': 'http://7xufo0.com1.z0.glb.clouddn.com/snjx.png', 'game_name': '少年剑心', 'game_id': '19f93a82', 'game_detail_url': '/view/page?id=2000&amp;pa=19f93a82', 'time': '03-16 17:52'}, {'message': '农民', 'comment_count': 0, 'post_detail_url': '/forum_app/post_detail?post_id=3001325', 'post_id': 3001325, 'game_icon': 'http://7xjy4m.dl1.z0.glb.clouddn.com/sklricon.png', 'game_name': '时空猎人', 'game_id': '05a83cf0', 'game_detail_url': '/view/page?id=2000&amp;pa=05a83cf0', 'time': '03-16 17:30'}, {'message': '摸摸你', 'comment_count': 0, 'post_detail_url': '/forum_app/post_detail?post_id=3001324', 'post_id': 3001324, 'game_icon': 'http://7xjy4m.dl1.z0.glb.clouddn.com/sklricon.png', 'game_name': '时空猎人', 'game_id': '05a83cf0', 'game_detail_url': '/view/page?id=2000&amp;pa=05a83cf0', 'time': '03-16 17:30'}], 'next_page_url': '/user/my_game?my_type=game_posts&amp;page=1&amp;offset=10', 'pluginVersion': 2, 'isForum': True, 'pageTitle': '', 'pageId': 0, 'tabCard': [{'pageType': 0, 'actionTarget': '/user/my_game?my_type=game_posts', 'actionType': 3, 'title': '评论的游戏'}, {'pageType': 0, 'actionTarget': '/user/my_game?my_type=play_games', 'actionType': 3, 'title': '玩过的游戏'}]}}, 'tips': {}}
+Traceback (most recent call last):
+  File "/home/liuyu/auto_api_test/case/test_mine.py", line 114, in test_my_comment_game
+    PrintLog.print_log_info("ceshi")
+NameError: name 'PrintLog' is not defined
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_my_home_page_paly_games: 测试个人主页-发布的帖子</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.4')" >
+        pass</a>
+
+    <div id='div_pt4.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.4: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '成功', 'isShow': False}, 'page': {'actionParam': 1000503, 'cards': [], 'next_page_url': '', 'pluginVersion': 2, 'isForum': True, 'pageTitle': '', 'user_basic_info': {'followed_user': 0, 'follow_num': 0, 'lv': 8, 'color': 2, 'liked_num': 61947, 'user_icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000503', 'user_name': '万言千语', 'g_age': 76, 'gender': 0, 'job': '', 'fans_num': 0}, 'pageId': 40012, 'tabCard': [{'pageType': 0, 'actionTarget': '/user/user_home?home_type=play_games', 'actionType': 3, 'title': '玩过游戏(18)'}, {'pageType': 0, 'actionTarget': '/user/user_home?home_type=game_posts', 'actionType': 3, 'title': '游戏评论(85)'}, {'pageType': 0, 'actionTarget': '/user/user_home?home_type=topics', 'actionType': 3, 'title': '帖子(0)'}]}}, 'tips': {}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_my_played_game: 我的游戏,我玩过的游戏</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.5')" >
+        pass</a>
+
+    <div id='div_pt4.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.5: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '成功', 'isShow': False}, 'page': {'cards': [{'game_detail_url': '/view/page?id=2000&amp;pa=5e9fb8bd', 'game_name': '崩坏学园2', 'game_tags': ['MOD', '角色扮演', '网络游戏', '射击游戏'], 'game_id': '5e9fb8bd', 'game_time': '', 'game_icon': 'http://image.game.uc.cn/2015/9/11/10977808.png'}, {'game_detail_url': '/view/page?id=2000&amp;pa=866c1335', 'game_name': '火炬之光', 'game_tags': ['MOD', '角色扮演', '网络游戏', '绅士福利'], 'game_id': '866c1335', 'game_time': '', 'game_icon': 'http://7xjy4m.dl1.z0.glb.clouddn.com/hjzgicon.png'}, {'game_detail_url': '/view/page?id=2000&amp;pa=a8c5a408', 'game_name': '点杀泰坦', 'game_tags': ['MOD', '角色扮演', '射击游戏', '男生最爱'], 'game_id': 'a8c5a408', 'game_time': '', 'game_icon': 'http://7xleaj.com1.z0.glb.clouddn.com/-598b1e5a40a41101'}, {'game_detail_url': '/view/page?id=2000&amp;pa=11b905c8', 'game_name': ' 迷你英雄 ', 'game_tags': ['MOD', '单机游戏', '射击游戏', '男生最爱'], 'game_id': '11b905c8', 'game_time': '', 'game_icon': 'http://qiniuggic.yyhudong.com/41df50884067f8a2ddaea657654d5728'}, {'game_detail_url': '/view/page?id=2000&amp;pa=341dbfd9', 'game_name': ' 地城进击者 ', 'game_tags': ['角色扮演', '冒险游戏', '策略游戏', '男生最爱'], 'game_id': '341dbfd9', 'game_time': '', 'game_icon': 'http://7xleaj.com1.z0.glb.clouddn.com/-160f5826296df99d'}, {'game_detail_url': '/view/page?id=2000&amp;pa=01f7edd8', 'game_name': '巨星足球', 'game_tags': ['益智休闲', '动作游戏', '男生最爱', '经典游戏'], 'game_id': '01f7edd8', 'game_time': '', 'game_icon': 'http://7xleaj.com1.z0.glb.clouddn.com/-f4fd1d6d093a98dc'}, {'game_detail_url': '/view/page?id=2000&amp;pa=18c88aa3', 'game_name': '∞ 无限循环', 'game_tags': ['MOD', '单机游戏', '益智休闲', '睡前必玩'], 'game_id': '18c88aa3', 'game_time': '', 'game_icon': 'http://7xleaj.com1.z0.glb.clouddn.com/-cc82379ad07cb4c3'}, {'game_detail_url': '/view/page?id=2000&amp;pa=a44cdbb7', 'game_name': ' 奇怪的追逐者 ', 'game_tags': ['角色扮演', '益智休闲', '男生最爱', '经典游戏'], 'game_id': 'a44cdbb7', 'game_time': '', 'game_icon': 'http://7xleaj.com1.z0.glb.clouddn.com/-29da31569d60aa14'}, {'game_detail_url': '/view/page?id=2000&amp;pa=860b0370', 'game_name': '蘑菇11', 'game_tags': ['益智休闲', '生存游戏', '男生最爱', '睡前必玩'], 'game_id': '860b0370', 'game_time': '', 'game_icon': 'http://7xleaj.com1.z0.glb.clouddn.com/-20f3cb6f65d8c94e'}], 'next_page_url': '/user/my_game?my_type=play_games&amp;page=1&amp;offset=10', 'pluginVersion': 2, 'isForum': True, 'pageTitle': '', 'pageId': 0, 'tabCard': [{'pageType': 0, 'actionTarget': '/user/my_game?my_type=game_posts', 'actionType': 3, 'title': '评论的游戏'}, {'pageType': 0, 'actionTarget': '/user/my_game?my_type=play_games', 'actionType': 3, 'title': '玩过的游戏'}]}}, 'tips': {}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_my_post_topic: 我发布的帖子</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.6')" >
+        pass</a>
+
+    <div id='div_pt4.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.6: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '成功', 'isShow': False}, 'page': {'cards': [{'isDelete': False, 'isActivity': 0, 'topicId': 824873, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 5, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824873'}, 'actionTarget': '/forum_app/topic?topic_id=824873&amp;topic_type=0&amp;rp=40007&amp;rpo=0&amp;rcpo=0&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001851, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': 'fgyhhhhh', 'likeCount': 2, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': 'hhhhhghh', 'groupId': 61, 'isLike': True, 'commentCount': 3, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '04-21 18:12'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824872, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 3, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824872'}, 'actionTarget': '/forum_app/topic?topic_id=824872&amp;topic_type=0&amp;rp=40007&amp;rpo=0&amp;rcpo=1&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001850, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': 'dhdjdjjjdj', 'likeCount': 2, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': 'jjdjdjsjsj', 'groupId': 105, 'isLike': True, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '04-21 17:49'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824871, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 3, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824871'}, 'actionTarget': '/forum_app/topic?topic_id=824871&amp;topic_type=0&amp;rp=40007&amp;rpo=0&amp;rcpo=2&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001848, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': 'yyhnjjhhgf', 'likeCount': 1, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': 'cghjhvbbb', 'groupId': 105, 'isLike': False, 'commentCount': 1, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '04-21 17:48'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824870, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 0, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824870'}, 'actionTarget': '/forum_app/topic?topic_id=824870&amp;topic_type=0&amp;rp=40007&amp;rpo=0&amp;rcpo=3&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001847, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': 'djfjjfjfcjfjjf', 'likeCount': 0, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': 'jxjxjxhxjdjhdh', 'groupId': 318, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '04-21 17:37'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824866, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 7, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824866'}, 'actionTarget': '/forum_app/topic?topic_id=824866&amp;topic_type=0&amp;rp=40007&amp;rpo=0&amp;rcpo=4&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001842, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': 'fjfjjfjfjfjfj', 'likeCount': 0, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': 'jfjcjcjxjxjxj', 'groupId': 104, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '04-21 10:29'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824830, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 0, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824830'}, 'actionTarget': '/forum_app/topic?topic_id=824830&amp;topic_type=0&amp;rp=40007&amp;rpo=0&amp;rcpo=5&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001776, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': 'fghhjjhgg', 'likeCount': 0, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': 'jgghhggH', 'groupId': 104, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '04-19 09:53'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824791, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 0, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824791'}, 'actionTarget': '/forum_app/topic?topic_id=824791&amp;topic_type=0&amp;rp=40007&amp;rpo=0&amp;rcpo=6&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001694, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': '', 'likeCount': 0, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': '', 'groupId': 105, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '04-17 18:43'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824790, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 0, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824790'}, 'actionTarget': '/forum_app/topic?topic_id=824790&amp;topic_type=0&amp;rp=40007&amp;rpo=0&amp;rcpo=7&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001692, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': 'dhjdjdjdjxj', 'likeCount': 0, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': 'hdhdhdjhd', 'groupId': 105, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '04-17 18:42'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824789, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 0, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824789'}, 'actionTarget': '/forum_app/topic?topic_id=824789&amp;topic_type=0&amp;rp=40007&amp;rpo=0&amp;rcpo=8&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001689, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': 'dhdjjdjxjxhxhxhx', 'likeCount': 0, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': 'bdhjdjdjdjdjdjdjx', 'groupId': 318, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '04-17 18:30'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824774, 'authorId': 1383511, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 1, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824774'}, 'actionTarget': '/forum_app/topic?topic_id=824774&amp;topic_type=0&amp;rp=40007&amp;rpo=0&amp;rcpo=9&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001653, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'score': 0, 'comments': [], 'job': '', 'description': '', 'likeCount': 0, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': '', 'groupId': 104, 'isLike': False, 'commentCount': 0, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'test000', 'time': '04-14 17:11'}], 'refreshUrl': '/forum_app/my_post_topics', 'pluginVersion': 2, 'loadMoreUrl': '/forum_app/my_post_topics?page=1&amp;offset=10', 'isForum': True, 'pageTitle': '', 'pageId': 40007}}, 'tips': {}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_my_replay_topic: 我回复的帖子</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.7')" >
+        pass</a>
+
+    <div id='div_pt4.7' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.7').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.7: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '成功', 'isShow': False}, 'page': {'cards': [{'isDelete': False, 'isActivity': 0, 'topicId': 824710, 'authorId': 1383504, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 13, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824710'}, 'actionTarget': '/forum_app/topic?topic_id=824710&amp;topic_type=0&amp;rp=40008&amp;rpo=0&amp;rcpo=0&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001500, 'level': 3, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383504', 'score': 0, 'comments': [], 'job': '', 'description': '来了摸着看哦www用', 'likeCount': 2, 'color': 1, 'topicType': 0, 'isShowHead': False, 'title': 'hhj摸摸哦哦弄', 'groupId': 307, 'isLike': True, 'commentCount': 7, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': 'ppikkjj', 'time': '03-30 10:26'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824394, 'authorId': 1481225, 'deleteNeedScore': 20, 'pics': [], 'isShowFoot': True, 'scanCount': 164, 'isDigest': 1, 'topicAction': {'actionData': {'param': '824394'}, 'actionTarget': '/forum_app/topic?topic_id=824394&amp;topic_type=0&amp;rp=40008&amp;rpo=0&amp;rcpo=1&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2964878, 'level': 3, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1481225', 'score': 20, 'comments': [], 'job': '', 'description': '我在地球时。准备好啦一切东西。铠甲。剑。搞。吃的。什么都有。让后找到末影门。兴奋的跳拉进去。一起都是陌生的。一头黑色的龙钻进屏幕。这就是末影龙啦。我拿起钻石剑疯狂的砍。一顿乱打。减啦它十分之一血。他回头一口吐沫吐我一脸。赶紧吃食物。我一看它血条。在上升？还能回血。正在我想时他一口吐沫又对准我吐。我就剩半滴血啦。吓得我在脚下挖了3个洞钻进去。封住口。直到血满也没敢出去。吓死我啦[黑线][黑线]', 'likeCount': 33, 'color': 1, 'topicType': 0, 'isShowHead': False, 'title': '【最怂的一次经历:我的世界  魔影世界】', 'groupId': 106, 'isLike': False, 'commentCount': 6, 'cardId': 132, 'isHot': 0, 'gender': 0, 'name': '爱丿丶冰', 'time': '02-28 06:13'}, {'isDelete': False, 'isActivity': 0, 'topicId': 819368, 'authorId': 1277370, 'deleteNeedScore': 0, 'pics': ['http://p3.pstatp.com/large/16350002e7d32c1e9e66', 'http://p3.pstatp.com/large/162d0002bd2d387207b5', 'http://p9.pstatp.com/large/15a30004b94c6aae646d'], 'isShowFoot': True, 'scanCount': 2409, 'isDigest': 0, 'topicAction': {'actionData': {'param': '819368'}, 'actionTarget': '/forum_app/topic?topic_id=819368&amp;topic_type=8&amp;rp=40008&amp;rpo=0&amp;rcpo=2&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2863927, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1277370', 'score': 0, 'comments': [{'content': '厉害了我的蒙娜丽莎', 'isLike': False, 'postId': 2863954, 'likeCount': 41, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1000097', 'name': '空城'}], 'job': 'GG小编', 'description': '作为一名我的世界忠实玩家，你手机里还在用二次元或者其他风景美女的壁纸吗？为什么不用游戏壁纸呢？\n也许你会说，在我的世界中，虽然风景很美，建筑也可以很美，但是奈何你截图技术渣渣啊！自己做出来的壁纸简直可以用“糟糕透顶”来形容。那么，今天小编就邀请G友来为大家分享他收藏的我的世界壁纸，绝对震撼！不信？那就来瞧瞧吧！感谢G友herbron给我们提供素材。\n壁纸一：小桥流水人家\n山美水美小木屋更是入情入景。乡村小清新风格的建筑，配上湖光山色，形成完美的摄影构图，咔嚓一张截图，完美游戏壁纸瞬间get！\n壁纸二：雨后花园一角\n仰视视角，使画面拉长效果，再配上颜色鲜艳的嫩草和小', 'likeCount': 19, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '玩家用《我的世界》制作壁纸，比网上找的美多了！', 'groupId': 104, 'isLike': True, 'commentCount': 13, 'cardId': 132, 'isHot': 0, 'gender': 2, 'name': '零度', 'time': '02-06 10:16'}, {'isDelete': False, 'isActivity': 1, 'topicId': 824670, 'authorId': 1633416, 'deleteNeedScore': 200, 'pics': [], 'isShowFoot': True, 'scanCount': 1012, 'isDigest': 1, 'topicAction': {'actionData': {'param': '824670'}, 'actionTarget': '/forum_app/topic?topic_id=824670&amp;topic_type=0&amp;rp=40008&amp;rpo=0&amp;rcpo=3&amp;rc=132', 'actionType': 102}, 'isTop': 1, 'postId': 3001409, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1633416', 'score': 200, 'comments': [], 'job': '', 'description': '测图标测图标[阴险][阴险][阴险][阴险]', 'likeCount': 3, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': '测图标测图标', 'groupId': 97, 'isLike': True, 'commentCount': 3, 'cardId': 132, 'isHot': 1, 'gender': 1, 'name': '冷空气又来了', 'time': '03-17 15:18'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824679, 'authorId': 1633423, 'deleteNeedScore': 0, 'pics': [], 'isShowFoot': True, 'scanCount': 6, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824679'}, 'actionTarget': '/forum_app/topic?topic_id=824679&amp;topic_type=0&amp;rp=40008&amp;rpo=0&amp;rcpo=4&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001442, 'level': 1, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1633423', 'score': 0, 'comments': [], 'job': '', 'description': 'gghbhhj', 'likeCount': 1, 'color': 1, 'topicType': 0, 'isShowHead': False, 'title': 'yggfhhbggg', 'groupId': 104, 'isLike': True, 'commentCount': 1, 'cardId': 132, 'isHot': 0, 'gender': 2, 'name': 'GG_148975015711', 'time': '03-17 19:45'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824511, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://img1.ali213.net/glpic/2017/02/28/584_2017022820640432.png', 'http://img1.ali213.net/glpic/2017/02/28/584_2017022820642696.png', 'http://img1.ali213.net/glpic/2017/02/28/584_2017022820645422.png'], 'isShowFoot': True, 'scanCount': 1389, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824511'}, 'actionTarget': '/forum_app/topic?topic_id=824511&amp;topic_type=8&amp;rp=40008&amp;rpo=0&amp;rcpo=5&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2966574, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '在《不思议迷宫》的冈布奥中，每一只都形态各异。其中“海怪船长”虽然算不上最怪异，但是也绝对有着自己的一番风格。并且他的天赋异常强大，是挂树的必备之选。下面就由小编带领大家，看一看如何获得海怪船长冈布奥吧。\n海贼之港\n在海贼之港盘踞着各种各样的海盗和怪物。他们拥有着特殊的属性，强大的战斗力。想要战胜他们就需要了解他们的特性，这样才能用最小的消耗登上最高的迷宫。具体要如何更简单有效的削弱敌人，或阻止他们协作，就需要冒险者们多多思考啦。\n《不思议迷宫》海盗\n《不思议迷宫》刺客\n走私者商铺\n在无法的海贼领地，走私者的商铺随处可见。比起普通的商店少量出售', 'likeCount': 5, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '《不思议迷宫》“海怪船长”冈布奥的获得方法攻略', 'groupId': 104, 'isLike': False, 'commentCount': 7, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '02-28 18:44'}, {'isDelete': False, 'isActivity': 0, 'topicId': 813048, 'authorId': 1273421, 'deleteNeedScore': 0, 'pics': ['http://image.135editor.com/files/users/165/1655096/201701/M7x7dudd_EKtD.png', 'http://image.135editor.com/files/users/165/1655096/201701/2EbhrO4r_GfvS.png', 'http://image.135editor.com/files/users/165/1655096/201701/wt4YCdJ9_gqVM.png'], 'isShowFoot': True, 'scanCount': 690, 'isDigest': 0, 'topicAction': {'actionData': {'param': '813048'}, 'actionTarget': '/forum_app/topic?topic_id=813048&amp;topic_type=8&amp;rp=40008&amp;rpo=0&amp;rcpo=6&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2750278, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1273421', 'score': 0, 'comments': [], 'job': '', 'description': '回头看看2016年发行的游戏，基本上是好坏掺半鱼龙混杂。其中精品不乏有《Inside》、《耻辱2》和《黑暗之魂3》等，但同样也有一些不尽人意的如《最后的守护者》以及不得不说的年度最烂《无人深空》。\n在游戏硬件技术方面也是如此，进一步讲，有进步异常明显，已经可以让消费者购买使用的VR技术;退一步说又有索尼大法日常推出信仰机，只对性能做了些许提升，因此我并不怎么推荐购买的PS4\nPRO。\n再来展望一下2017年，虽然这才刚开头，但通过各大厂商的公告及预测业界前景，我们已经可以隐约看到今年对游戏业界来说注定是个不平凡的一年。有一些非常令人期待的新游戏将会发售在不同的平台上，任天', 'likeCount': 3, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': '《上古卷轴6》来了？ 细数2017年十大劲爆游戏消息', 'groupId': 104, 'isLike': False, 'commentCount': 3, 'cardId': 132, 'isHot': 0, 'gender': 1, 'name': '幻灭灬原点', 'time': '01-16 17:09'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824665, 'authorId': 1277370, 'deleteNeedScore': 0, 'pics': ['http://p1.pstatp.com/large/191b0007b848ef5f4d2f', 'http://p2.pstatp.com/large/191c000008a4006f2817', 'http://p3.pstatp.com/large/19140001e8ace62d9010'], 'isShowFoot': True, 'scanCount': 1197, 'isDigest': 0, 'topicAction': {'actionData': {'param': '824665'}, 'actionTarget': '/forum_app/topic?topic_id=824665&amp;topic_type=8&amp;rp=40008&amp;rpo=0&amp;rcpo=7&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 3001396, 'level': 5, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1277370', 'score': 0, 'comments': [], 'job': 'GG小编', 'description': '今天给大家带来的是新武器新地图和新优化！穿越火线武器新增“天鹰”家族，好像还有个表兄弟叫雄鹰。酷炫的外形，强劲的火力，移动中也有很高的精度，这就是传说中的边走边射？经典地图沙漠-1TD升级为“新沙漠TD”，同样的战术不同的味道。新爆头战地图“化学研究所”已上线，听说掉进去会变成怪物？一些使用率较低的地图也将被暂时下架，优化体验，从未间断！具体内容，快跟着小编先睹为快吧~\n本期热点：新武器、新地图、新优化\n一、新武器/新道具\nAPR338-天鹰（狙击枪）\n效果图\n期限：7/30/90/180天\n价格：800/2000/4000/5600\nCF点\n弹夹容量：1', 'likeCount': 3, 'color': 2, 'topicType': 8, 'isShowHead': False, 'title': 'CF四月新版本情报站：新武器&amp;新地图强势登场！', 'groupId': 104, 'isLike': True, 'commentCount': 7, 'cardId': 132, 'isHot': 0, 'gender': 2, 'name': '零度', 'time': '03-17 09:47'}, {'isDelete': False, 'isActivity': 0, 'topicId': 824031, 'authorId': 1443824, 'deleteNeedScore': 40, 'pics': [], 'isShowFoot': True, 'scanCount': 1696, 'isDigest': 1, 'topicAction': {'actionData': {'param': '824031'}, 'actionTarget': '/forum_app/topic?topic_id=824031&amp;topic_type=0&amp;rp=40008&amp;rpo=0&amp;rcpo=8&amp;rc=132', 'actionType': 102}, 'isTop': 0, 'postId': 2957801, 'level': 4, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1443824', 'score': 40, 'comments': [], 'job': '御赐小跟班', 'description': '第一次玩泰拉瑞亚，傻傻的我只会乱挖，到现在为止我还把那张照片珍藏着。\n第一次打克鲁苏之眼，我看到了一只大眼睛追着我满地图跑，于是我就挥舞着我的小斧头砍了他一下，我跑回家以后打开我那个从别处挖来的宝箱拿出我珍藏多年的僵尸手臂。可惜为时已晚，大眼球都在我家门口于是我就在家里面被他怼死了[笑cry]\n我重生之后再去找他他就不见了，因为那是我第一次玩泰拉瑞亚于是我就一直往右边走，然后看到了一个监狱(地牢)里面有个老淫淫(老爷爷)我点他一下他说让我晚上来，天黑了之后我再来找到他点了他一下就看到了一个死人脑袋(骷髅头)和两只手(骷髅手)[笑cry]于是我就又死了，知道为什么我不会做铁剑，铂金剑，银剑吗？因为那时候我第一次玩儿并不知道有工作台这个神奇的东西[笑cry]，直到有一天……\n一天傍晚我去地牢里面作死(骷髅守卫)\n死完了之后，我看到左下角有一行字:血月正在升起\n当时我一脸懵逼[疑问]于是就跑来了一大堆僵尸，还有一个戴着礼帽的僵尸，最可怕的是我看到了一只僵尸兔子(腐化兔子)，最使我感到奇怪的是为什么僵尸会开门？我的天哪！僵尸会开门，那光头强都能长头发了[笑cry]\n\n因为我太懒了所以不想发了，第一章结到此结束！', 'likeCount': 20, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': '我的泰拉瑞亚故事(一)', 'groupId': 107, 'isLike': False, 'commentCount': 30, 'cardId': 132, 'isHot': 1, 'gender': 0, 'name': 'GG_小黑君', 'time': '02-26 11:32'}, {'isDelete': False, 'isActivity': 0, 'topicId': 802948, 'authorId': 1003910, 'deleteNeedScore': 40, 'pics': [], 'isShowFoot': True, 'scanCount': 1679, 'isDigest': 1, 'topicAction': {'actionData': {'param': '802948'}, 'actionTarget': '/forum_app/topic?topic_id=802948&amp;topic_type=0&amp;rp=40008&amp;rpo=0&amp;rcpo=9&amp;rc=132', 'actionType': 102}, 'isTop': 1, 'postId': 2626029, 'level': 6, 'count': 0, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1003910', 'score': 40, 'comments': [{'content': '还有不知道的可以问我', 'isLike': True, 'postId': 2626042, 'likeCount': 34, 'icon': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1003910', 'name': '贫僧法号秃驴'}], 'job': '铁杆粉', 'description': '①新版mod要在gg魔盒使用，就是正下方的游戏手柄图标\n\n②要把游戏安装在魔盒，只要手机没有安装某某游戏，下载后就会自动安装（没有安装就手动一下）到魔盒\n\n③老版游戏的数据可能无法保存了，因为要安装到魔盒就要删除该游戏。这里希望gg修复一下\n\n④一定要删除游戏之后在用gg助手安装，要不然还好没法使用mod\n\n⑤点击魔盒，游戏下方会显示mod种类，自己下载就行，买过的mod不需要再次购买\n\n⑥删除GG大玩家等于删除游戏，所以不要删除，数据会一起清除的', 'likeCount': 49, 'color': 2, 'topicType': 0, 'isShowHead': False, 'title': '很多人不知道新版mod怎么用，我说一下', 'groupId': 104, 'isLike': False, 'commentCount': 140, 'cardId': 132, 'isHot': 1, 'gender': 0, 'name': '贫僧法号秃驴', 'time': '2016-12-21 13:21'}], 'refreshUrl': '/forum_app/my_reply_topics', 'pluginVersion': 2, 'loadMoreUrl': '/forum_app/my_reply_topics?page=1&amp;offset=10', 'isForum': True, 'pageTitle': '', 'pageId': 40008}}, 'tips': {}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.8' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_share_qq_wechat_add_score: 分享QQ\微信加积分(随机)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.8')" >
+        pass</a>
+
+    <div id='div_pt4.8' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.8').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.8: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '分享奖励, + 2积分1经验', 'isShow': True}, 'score_var': 2}, 'tips': {}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt4.9' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_share_qzone_add_score: 分享空间\朋友圈加积分(随机)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt4.9')" >
+        pass</a>
+
+    <div id='div_pt4.9' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt4.9').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt4.9: {'msg': '成功', 'rc': 0, 'data': {'showMsg': {'msg': '分享奖励, + 4积分2经验', 'isShow': True}, 'score_var': 4}, 'tips': {}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>33</td>
+    <td class="text text-success">10</td>
+    <td class="text text-danger">4</td>
+    <td class="text text-warning">19</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

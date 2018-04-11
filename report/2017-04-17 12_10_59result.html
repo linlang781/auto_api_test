@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-04-17 12:10:59</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:04.040498</p>
+<p class='attribute'><strong>Status:</strong> Pass 5 Failure 1</p>
+
+<p class='description'>用例执行情况</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)' class="btn btn-xs btn-primary">Summary</a>
+<a href='javascript:showCase(1)' class="btn btn-xs btn-danger">Failed</a>
+<a href='javascript:showCase(2)' class="btn btn-xs btn-info">All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_login.TestLogin</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_login: 测试登录</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: {'tips': {}, 'data': {'wechat_binded': 0, 'token': 'username||test000&amp;state||0&amp;character||0&amp;telephone||2016288284&amp;adfree||2&amp;secret||2|1:0|10:1492402260|6:secret|200:eyJ1aWQiOiAxMzgzNTExLCAiY3VycmVudEFuZHJvaWRJZCI6ICIxYjhkMmM1ZWE1YzkzYzExIiwgImNyZWF0ZV90aW1lIjogMTQ5MjQwMjI2MCwgImFkZnJlZV9leHBpcmUiOiAxNTA0OTU5NjIwLCAibG9naW5faXAiOiAibG9naW5faXAiLCAiZ2FtZV9pZCI6IDB9|e6ab7f6109f9e96c8334c85ce6b8914c1dd455f80be0734fc958d7bc9d7f7dc2&amp;expire||7&amp;create_time||1492402260&amp;type||0', 'profile': {'exp_need': 219, 'inviteUrl': 'http://ggzhushou.cn:81/game/gg_share1?invite_code=7e27_1383511', 'invite_code': '7e27_1383511', 'lv': 5, 'lvIcon': 'https://bbs.ggzhushou.cn:444/static/images/v5_white.png', 'jobName': '', 'nick_icon': '', 'gender': 0, 'color': 2, 'avatar_url': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'next_level_award': '奖励30积分', 'sign': '', 'invitedCode': '', 'lvTitle': 'GG高玩', 'nickname': 'test000', 'character': 0, 'nameChanged': 0, 'adfree_expire': 1504959620, 'score': 8, 'birthday': 1489507200000, 'avatarUrl': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'name_changed': 0, 'lv_title': 'GG高玩', 'uid': 1383511, 'userPermissions': 'postPlugin,', 'adfree': 2, 'adfreeExpire': 1504959620, 'nextLevelAward': '奖励30积分', 'lv_icon': 'https://bbs.ggzhushou.cn:444/static/images/v5_white.png', 'job_name': '', 'nickIcon': '', 'invite_url': 'http://ggzhushou.cn:81/game/gg_share1?invite_code=7e27_1383511', 'user_permissions': 'postPlugin,', 'inviteCode': '7e27_1383511', 'exp': 581, 'invited_code': '', 'location': '福州', 'expNeed': 219}, 'expire': 7, 'showMsg': {'msg': '成功', 'isShow': False}, 'create_time': 1492402260, 'qq_binded': 0}, 'rc': 0, 'msg': '成功'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>test_magic_box.TestMagicBox</td>
+    <td>5</td>
+    <td>4</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',5)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_get_box_game</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        fail</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: 无返回数据,HTTP状态码为500
+Traceback (most recent call last):
+  File "/home/liuyu/project/autoapitest/case/test_magic_box.py", line 65, in test_get_box_game
+    self.assertEqual(response.status_code, 200)
+AssertionError: 500 != 200
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_get_default_keyword</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        pass</a>
+
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: {'data': '宠物小精灵【BT】', 'rc': 0, 'msg': '成功'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_plugin_version_info: 测试插件版本信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.3')" >
+        pass</a>
+
+    <div id='div_pt2.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.3: {'data': {'timeoutLetv': 25000, 'timeoutYouku': 25000, 'showMsg': {'msg': '', 'isShow': False}, 'url': 'https://cdn2.yyhudong.com/ggplugin/videotools5.534.apk', 'verCode': 5000534, 'timeoutBilibili': 25000, 'timeoutSohu': 25000}, 'rc': 0, 'msg': '成功'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_recommond_game</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.4')" >
+        pass</a>
+
+    <div id='div_pt2.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.4: {'data': {'showMsg': {'msg': '', 'isShow': False}, 'recommend': [{'supportDuplicate': False, 'dependCheck': True, 'dependGooglePlay': True, 'downloadLinks': {'client': [], 'direct': [{'name': '直接下载', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=a7731d80d6d2b2acbee3ac53d022469d', 'desc': ''}], 'webview': [{'name': '百度云地址', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=8458e9a56795a70759305c891422b18e', 'index': 2, 'desc': ''}]}, 'verCode': 8117, 'action': {'actionTarget': '/view/page?id=2000&amp;pa=32906ffe', 'actionType': 1, 'param': '32906ffe', 'actionData': {'param': '32906ffe'}}, 'supportCenterPlugin': True, 'pluginCount': 0, 'downloadType': 1, 'ggVerCode': 1474334106, 'supportBox': False, 'supportBackup': False, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=a7731d80d6d2b2acbee3ac53d022469d', 'pkgName': 'com.t2ksports.wwe2k15mobile', 'supportPlugin': True, 'gameName': '美国职业摔角2k15', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-81de8eed63582b72', 'gameId': '32906ffe', 'desc': '以美国超人气摔跤赛事为原型打造的游戏，将带给玩家更加刺激摔角临场体验', 'size': 644666962, 'supportAccount': True, 'verName': '1.1.8117', 'minSdk': 14, 'gpuRenderers': [1]}, {'supportDuplicate': False, 'dependCheck': True, 'dependGooglePlay': True, 'downloadLinks': {'client': [], 'direct': [{'name': '直接下载', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=68699058b9cc76aca2767ffeb76ebcb6', 'desc': ''}], 'webview': [{'name': '百度云地址', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=b1283f9d3713cac3c90afd1808aa5c84', 'index': 2, 'desc': ''}]}, 'verCode': 4, 'action': {'actionTarget': '/view/page?id=2000&amp;pa=c8293cd8', 'actionType': 1, 'param': 'c8293cd8', 'actionData': {'param': 'c8293cd8'}}, 'supportCenterPlugin': True, 'pluginCount': 0, 'downloadType': 1, 'ggVerCode': 1474334074, 'supportBox': False, 'supportBackup': False, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=68699058b9cc76aca2767ffeb76ebcb6', 'pkgName': 'com.ubisoft.raymananniversary', 'supportPlugin': True, 'gameName': '经典雷曼', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-0b273e4d136d0ef1', 'gameId': 'c8293cd8', 'desc': '控制雷曼躲避障碍和敌人的堵截', 'size': 207290051, 'supportAccount': True, 'verName': '1.0.0', 'minSdk': 14, 'gpuRenderers': [1]}, {'supportDuplicate': False, 'dependCheck': True, 'dependGooglePlay': True, 'downloadLinks': {'client': [], 'direct': [{'name': '直接下载', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=0c487ce3f3fd418fcf64393464797500', 'desc': ''}], 'webview': [{'name': '百度云地址', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=7376774f9609f584cbe611c1606121e5', 'index': 2, 'desc': ''}]}, 'verCode': 4000022, 'action': {'actionTarget': '/view/page?id=2000&amp;pa=08f17543', 'actionType': 1, 'param': '08f17543', 'actionData': {'param': '08f17543'}}, 'supportCenterPlugin': True, 'pluginCount': 3, 'downloadType': 1, 'ggVerCode': 1474522562, 'supportBox': True, 'supportBackup': False, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=0c487ce3f3fd418fcf64393464797500', 'pkgName': 'com.squareenix.dxm', 'supportPlugin': True, 'gameName': '杀出重围：陨落', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-4f26a14a8998c7fd', 'gameId': '08f17543', 'desc': '《杀出重围：陨落》 以同名系列小说《杀出重围：伊卡洛斯效应》为故事背景，这是一款剧情导向的动作RPG游戏，讲述的是英国SAS特工Ben Saxon在退伍后加入了私人军事组织暴政小组当雇佣兵，但却被他的', 'size': 748434976, 'supportAccount': True, 'verName': '0.0.22', 'minSdk': 13, 'gpuRenderers': [1]}, {'supportDuplicate': False, 'dependCheck': False, 'dependGooglePlay': False, 'downloadLinks': {'client': [], 'direct': [{'name': '直接下载', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=6ab59c8c26bd08b056a21f8799b20d76', 'desc': ''}], 'webview': []}, 'verCode': 11001, 'action': {'actionTarget': '/view/page?id=2000&amp;pa=386a423b', 'actionType': 1, 'param': '386a423b', 'actionData': {'param': '386a423b'}}, 'supportCenterPlugin': False, 'pluginCount': 0, 'downloadType': 1, 'ggVerCode': 1606011056, 'supportBox': False, 'supportBackup': False, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=6ab59c8c26bd08b056a21f8799b20d76', 'pkgName': 'com.netease.mhws', 'supportPlugin': False, 'gameName': '梦幻西游无双版', 'iconUrl': 'http://img.wdjimg.com/mms/icon/v1/e/41/96ab10b08292a2c77f5e3736b104841e_256_256.png', 'gameId': '386a423b', 'desc': '梦幻西游也有即时制手游', 'size': 416249284, 'supportAccount': False, 'verName': '1.2.1', 'minSdk': 9, 'gpuRenderers': [1]}, {'supportDuplicate': False, 'dependCheck': True, 'dependGooglePlay': True, 'downloadLinks': {'client': [], 'direct': [{'name': '直接下载', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=f25cffa24591af00a942744ce7f169e5', 'desc': ''}], 'webview': [{'name': '百度云地址', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=3fa1dad14a4911e6bd3c852309e2cc3b', 'index': 2, 'desc': ''}]}, 'verCode': 216, 'action': {'actionTarget': '/view/page?id=2000&amp;pa=90f010a4', 'actionType': 1, 'param': '90f010a4', 'actionData': {'param': '90f010a4'}}, 'supportCenterPlugin': True, 'pluginCount': 0, 'downloadType': 1, 'ggVerCode': 1474522580, 'supportBox': False, 'supportBackup': False, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=f25cffa24591af00a942744ce7f169e5', 'pkgName': 'com.square_enix.android_googleplay.FFVI', 'supportPlugin': True, 'gameName': '最终幻想6', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-aafe476b00cae053', 'gameId': '90f010a4', 'desc': '日本国民级RPG最终幻想系列迎来了第6作', 'size': 503538517, 'supportAccount': True, 'verName': '2.1.6', 'minSdk': 13, 'gpuRenderers': [1]}, {'supportDuplicate': False, 'dependCheck': True, 'dependGooglePlay': True, 'downloadLinks': {'client': [], 'direct': [{'name': '直接下载', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=604bb0911d800615bf21e57f6ede6323', 'desc': ''}], 'webview': [{'name': '百度云地址', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=6b649f004b8c43b7652e37e695671631', 'index': 2, 'desc': ''}]}, 'verCode': 303, 'action': {'actionTarget': '/view/page?id=2000&amp;pa=7ae09ab0', 'actionType': 1, 'param': '7ae09ab0', 'actionData': {'param': '7ae09ab0'}}, 'supportCenterPlugin': True, 'pluginCount': 0, 'downloadType': 1, 'ggVerCode': 1474333891, 'supportBox': False, 'supportBackup': False, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=604bb0911d800615bf21e57f6ede6323', 'pkgName': 'com.glu.modwarsniper', 'supportPlugin': True, 'gameName': '火线指令', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-b34aff261ba9c0b1', 'gameId': '7ae09ab0', 'desc': '火线指令是一款第三人称的射击游戏，游戏的故事非常惨烈，你是唯一剩下的前线突击队员，你没有选择，你必须对抗独裁者的残忍袭击', 'size': 159134944, 'supportAccount': True, 'verName': '3.0.3', 'minSdk': 7, 'gpuRenderers': [1]}, {'supportDuplicate': False, 'dependCheck': True, 'dependGooglePlay': True, 'downloadLinks': {'client': [], 'direct': [{'name': '直接下载', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=47fe40de4bc45a177cd123b0464a8049', 'desc': ''}], 'webview': []}, 'verCode': 88009, 'action': {'actionTarget': '/view/page?id=2000&amp;pa=01d9f590', 'actionType': 1, 'param': '01d9f590', 'actionData': {'param': '01d9f590'}}, 'supportCenterPlugin': True, 'pluginCount': 2, 'downloadType': 1, 'ggVerCode': 1487039055, 'supportBox': True, 'supportBackup': False, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=47fe40de4bc45a177cd123b0464a8049', 'pkgName': 'com.squareenixmontreal.hitmansniperandroid', 'supportPlugin': True, 'gameName': '杀手：狙击手', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-a150575e8ee0806f', 'gameId': '01d9f590', 'desc': '暗黑神枪手，过足杀手瘾', 'size': 456530438, 'supportAccount': True, 'verName': '1.7.88009', 'minSdk': 16, 'gpuRenderers': [1]}, {'supportDuplicate': False, 'dependCheck': True, 'dependGooglePlay': True, 'downloadLinks': {'client': [], 'direct': [{'name': '直接下载', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=fd41ee41b1bde55dfd382675c6a9b142', 'desc': ''}], 'webview': [{'name': '百度云地址', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=3bf565d19f58863bfcc6e4a549955669', 'index': 2, 'desc': ''}]}, 'verCode': 2143, 'action': {'actionTarget': '/view/page?id=2000&amp;pa=46684234', 'actionType': 1, 'param': '46684234', 'actionData': {'param': '46684234'}}, 'supportCenterPlugin': True, 'pluginCount': 1, 'downloadType': 1, 'ggVerCode': 1474522501, 'supportBox': True, 'supportBackup': True, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=fd41ee41b1bde55dfd382675c6a9b142', 'pkgName': 'com.rovio.angrybirdsspace.ads', 'supportPlugin': True, 'gameName': '愤怒的小鸟太空版', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-f1323aaefe137cd9', 'gameId': '46684234', 'desc': '冲出地球走向宇宙', 'size': 50283387, 'supportAccount': True, 'verName': '2.2.1', 'minSdk': 9, 'gpuRenderers': [1]}, {'supportDuplicate': False, 'dependCheck': True, 'dependGooglePlay': True, 'downloadLinks': {'client': [], 'direct': [{'name': '直接下载', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=242b86eda4712e01e069e8ec551b9c87', 'desc': ''}], 'webview': [{'name': '百度云地址', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=da35ded6e2ffd86e08b12f9860a1cc0a', 'index': 2, 'desc': ''}]}, 'verCode': 12032, 'action': {'actionTarget': '/view/page?id=2000&amp;pa=0b8dbf14', 'actionType': 1, 'param': '0b8dbf14', 'actionData': {'param': '0b8dbf14'}}, 'supportCenterPlugin': True, 'pluginCount': 0, 'downloadType': 1, 'ggVerCode': 1474333858, 'supportBox': False, 'supportBackup': False, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=242b86eda4712e01e069e8ec551b9c87', 'pkgName': 'com.gameloft.android.ANMP.GloftOKHM', 'supportPlugin': True, 'gameName': '决斗骑士', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-fe4f8d07a313fd42', 'gameId': '0b8dbf14', 'desc': '梦幻旅程：成为骑士&amp;一路对决夺取胜利！和成千上万的玩家在这个荣耀与冒险的游戏决斗', 'size': 276584773, 'supportAccount': True, 'verName': '1.2.0l', 'minSdk': 14, 'gpuRenderers': [1]}], 'showCount': 6, 'rmInstalled': True}, 'rc': 0, 'msg': '成功'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_update_info</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.5')" >
+        pass</a>
+
+    <div id='div_pt2.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.5: {'data': {'showMsg': {'msg': '', 'isShow': False}}, 'rc': 0, 'msg': '成功'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>6</td>
+    <td class="text text-success">5</td>
+    <td class="text text-danger">1</td>
+    <td class="text text-warning">0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>测试报告</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+	<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2017-04-17 12:19:13</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:03.445216</p>
+<p class='attribute'><strong>Status:</strong> Pass 6 Failure 1</p>
+
+<p class='description'>用例执行情况</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)' class="btn btn-xs btn-primary">Summary</a>
+<a href='javascript:showCase(1)' class="btn btn-xs btn-danger">Failed</a>
+<a href='javascript:showCase(2)' class="btn btn-xs btn-info">All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='passClass'>
+    <td>test_login.TestLogin: 登录模块测试</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_login: 测试登录</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.1')" >
+        pass</a>
+
+    <div id='div_pt1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.1: {'rc': 0, 'tips': {}, 'msg': '成功', 'data': {'create_time': 1492402753, 'qq_binded': 0, 'profile': {'exp': 581, 'userPermissions': 'postPlugin,', 'avatarUrl': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'user_permissions': 'postPlugin,', 'character': 0, 'uid': 1383511, 'invite_url': 'http://ggzhushou.cn:81/game/gg_share1?invite_code=7e27_1383511', 'adfreeExpire': 1504959620, 'lvIcon': 'https://bbs.ggzhushou.cn:444/static/images/v5_white.png', 'next_level_award': '奖励30积分', 'birthday': 1489507200000, 'gender': 0, 'location': '福州', 'lv_title': 'GG高玩', 'avatar_url': 'https://bbs.ggzhushou.cn:444/user/avatar?uid=1383511', 'name_changed': 0, 'inviteUrl': 'http://ggzhushou.cn:81/game/gg_share1?invite_code=7e27_1383511', 'score': 8, 'jobName': '', 'sign': '', 'invited_code': '', 'nickIcon': '', 'lvTitle': 'GG高玩', 'inviteCode': '7e27_1383511', 'adfree': 2, 'invitedCode': '', 'lv': 5, 'lv_icon': 'https://bbs.ggzhushou.cn:444/static/images/v5_white.png', 'nextLevelAward': '奖励30积分', 'nameChanged': 0, 'exp_need': 219, 'color': 2, 'nickname': 'test000', 'job_name': '', 'adfree_expire': 1504959620, 'nick_icon': '', 'expNeed': 219, 'invite_code': '7e27_1383511'}, 'wechat_binded': 0, 'token': 'username||test000&amp;state||0&amp;character||0&amp;telephone||2016288284&amp;adfree||2&amp;secret||2|1:0|10:1492402753|6:secret|200:eyJ1aWQiOiAxMzgzNTExLCAiY3VycmVudEFuZHJvaWRJZCI6ICIxYjhkMmM1ZWE1YzkzYzExIiwgImNyZWF0ZV90aW1lIjogMTQ5MjQwMjc1MywgImFkZnJlZV9leHBpcmUiOiAxNTA0OTU5NjIwLCAibG9naW5faXAiOiAibG9naW5faXAiLCAiZ2FtZV9pZCI6IDB9|472f91c33b83c66d8d9fbf7a207574830293725648a2374160a8e00549983b60&amp;expire||7&amp;create_time||1492402753&amp;type||0', 'showMsg': {'isShow': False, 'msg': '成功'}, 'expire': 7}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='failClass'>
+    <td>test_magic_box.TestMagicBox: 魔盒游戏测试</td>
+    <td>6</td>
+    <td>5</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',6)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='failCase'><div class='testcase'>test_get_box_game: 获取魔盒游戏详细信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        fail</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: 无返回数据,HTTP状态码为500
+Traceback (most recent call last):
+  File "/home/liuyu/project/autoapitest/case/test_magic_box.py", line 68, in test_get_box_game
+    self.assertEqual(response.status_code, 200)
+AssertionError: 500 != 200
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_get_default_keyword: 获取搜索框默认关键词</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        pass</a>
+
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: {'rc': 0, 'msg': '成功', 'data': '宠物小精灵【BT】'}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_hot_games: 获取搜索页推荐的游戏列表</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.3')" >
+        pass</a>
+
+    <div id='div_pt2.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.3: {'rc': 0, 'msg': '成功', 'data': {'items': {'poolId': 'MP_1', 'rmInstalled': False, 'poolItems': [{'subTitle': '1010.0MB | 下载人数 100,000+', 'title': '黑暗骑士：黎明升起', 'action': {'actionTarget': '/view/page?id=2000&amp;pa=8ea0051e', 'actionType': 1, 'param': '8ea0051e', 'actionData': {'param': '8ea0051e'}}, 'superscriptId': 6, 'downloadInfo': {'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=a5d5e2b2c5aafe73c7ecac33b8630785', 'supportAccount': True, 'verName': '1.1.5f', 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'gameName': '黑暗骑士：黎明升起', 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=a5d5e2b2c5aafe73c7ecac33b8630785'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=67fdeca3d0c55330b9f1cabcee7dac6e'}], 'client': []}, 'supportDuplicate': False, 'supportPlugin': True, 'gameId': '8ea0051e', 'downloadType': 1, 'supportBox': False, 'size': 1059109829, 'supportBackup': False, 'verCode': 11531, 'pkgName': 'com.gameloft.android.ANMP.GloftKRHM', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-d75351fc696d08b1', 'supportCenterPlugin': True, 'ggVerCode': 1474333832, 'gpuRenderers': [1], 'minSdk': 8}, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-d75351fc696d08b1', 'fileSize': '1010.0MB', 'description': '剧情源于同名影片，打击感十足', 'subheading': '1010.0MB'}, {'subTitle': '86.1MB | 下载人数 少于10,000', 'title': '甜点消消乐', 'action': {'actionTarget': '/view/page?id=2000&amp;pa=f417b7ae', 'actionType': 1, 'param': 'f417b7ae', 'actionData': {'param': 'f417b7ae'}}, 'superscriptId': 6, 'downloadInfo': {'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=9a5551b219bb4bfc6c53507310df547f', 'supportAccount': True, 'verName': '1.2.0ad', 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'gameName': '甜点消消乐', 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=9a5551b219bb4bfc6c53507310df547f'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=2455ae2600e3157a53c516ef7c62725d'}], 'client': []}, 'supportDuplicate': False, 'supportPlugin': True, 'gameId': 'f417b7ae', 'downloadType': 1, 'supportBox': False, 'size': 90275130, 'supportBackup': False, 'verCode': 12049, 'pkgName': 'com.gameloft.android.ANMP.GloftPAHM', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-d944a53941d37cc0', 'supportCenterPlugin': True, 'ggVerCode': 1474333884, 'gpuRenderers': [1], 'minSdk': 14}, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-d944a53941d37cc0', 'fileSize': '86.1MB', 'description': '一款刺激味蕾的甜蜜三消休闲游戏，与最甜美的厨师汉娜携手，阻止黑漆漆先生的恶行', 'subheading': '86.1MB'}, {'subTitle': '22.0MB | 下载人数 少于10,000', 'title': '僵尸突围', 'action': {'actionTarget': '/view/page?id=2000&amp;pa=797a9e15', 'actionType': 1, 'param': '797a9e15', 'actionData': {'param': '797a9e15'}}, 'superscriptId': 6, 'downloadInfo': {'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=d3fe583c0cdb820897b63ab824066001', 'supportAccount': True, 'verName': '1.1.1', 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'gameName': '僵尸突围', 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=d3fe583c0cdb820897b63ab824066001'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=a8ca33b855c0dacd0a19e98111aff370'}], 'client': []}, 'supportDuplicate': False, 'supportPlugin': True, 'gameId': '797a9e15', 'downloadType': 1, 'supportBox': False, 'size': 23110666, 'supportBackup': False, 'verCode': 111, 'pkgName': 'com.chillingo.deadahead.ajagplay', 'iconUrl': 'http://img9.android.d.cn/android/new/game_image/74/39374/icon.png', 'supportCenterPlugin': True, 'ggVerCode': 1474522497, 'gpuRenderers': [1], 'minSdk': 9}, 'iconUrl': 'http://img9.android.d.cn/android/new/game_image/74/39374/icon.png', 'fileSize': '22.0MB', 'description': '狂飙冲出僵尸的围追堵截', 'subheading': '22.0MB'}, {'subTitle': '67.9MB | 下载人数 10,000+', 'title': '火柴人联盟：僵尸', 'action': {'actionTarget': '/view/page?id=2000&amp;pa=8ec93cac', 'actionType': 1, 'param': '8ec93cac', 'actionData': {'param': '8ec93cac'}}, 'superscriptId': 5, 'downloadInfo': {'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=45bacb9dae94a3c9a57eb2c4937025af', 'supportAccount': True, 'verName': '2.0.3', 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 2, 'gameName': '火柴人联盟：僵尸', 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=45bacb9dae94a3c9a57eb2c4937025af'}], 'webview': [], 'client': []}, 'supportDuplicate': False, 'supportPlugin': True, 'gameId': '8ec93cac', 'downloadType': 1, 'supportBox': True, 'size': 71229833, 'supportBackup': True, 'verCode': 203, 'pkgName': 'me.dreamsky.leagueofstickmanzombie', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-bfb0ff52efa6a813', 'supportCenterPlugin': True, 'ggVerCode': 1486607435, 'gpuRenderers': [1], 'minSdk': 9}, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-bfb0ff52efa6a813', 'fileSize': '67.9MB', 'description': '加入火柴人家族消灭僵尸。', 'subheading': '67.9MB'}, {'subTitle': '36.5MB | 下载人数 少于10,000', 'title': '小小部队', 'action': {'actionTarget': '/view/page?id=2000&amp;pa=1cd35fcd', 'actionType': 1, 'param': '1cd35fcd', 'actionData': {'param': '1cd35fcd'}}, 'superscriptId': 6, 'downloadInfo': {'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=999fbfb96346e6ba784c5995e1d3c84f', 'supportAccount': True, 'verName': '1.0.6', 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'gameName': '小小部队', 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=999fbfb96346e6ba784c5995e1d3c84f'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=3aae25d85d6b4256c405b688d6c58269'}], 'client': []}, 'supportDuplicate': False, 'supportPlugin': True, 'gameId': '1cd35fcd', 'downloadType': 1, 'supportBox': False, 'size': 38252717, 'supportBackup': False, 'verCode': 106, 'pkgName': 'com.chillingo.tinytroopersfree.android.aja', 'iconUrl': 'http://qiniuggic.yyhudong.com/25652ea6216002c134cdfb5d080e296e', 'supportCenterPlugin': True, 'ggVerCode': 1474522491, 'gpuRenderers': [1], 'minSdk': 8}, 'iconUrl': 'http://qiniuggic.yyhudong.com/25652ea6216002c134cdfb5d080e296e', 'fileSize': '36.5MB', 'description': '《小小部队》是一款射击游戏，对于这些微型人来说大小并不重要，因为他们面对的总是强大的敌人', 'subheading': '36.5MB'}, {'subTitle': '44.0MB | 下载人数 少于10,000', 'title': '勇者斗恶龙2', 'action': {'actionTarget': '/view/page?id=2000&amp;pa=c945ed41', 'actionType': 1, 'param': 'c945ed41', 'actionData': {'param': 'c945ed41'}}, 'superscriptId': 6, 'downloadInfo': {'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=172d517a80d0eb7ec599f3996d5351ce', 'supportAccount': True, 'verName': '1.0.1', 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'gameName': '勇者斗恶龙2', 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=172d517a80d0eb7ec599f3996d5351ce'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=09f04b41858a7b8be7d07e338aafeddf'}], 'client': []}, 'supportDuplicate': False, 'supportPlugin': True, 'gameId': 'c945ed41', 'downloadType': 1, 'supportBox': False, 'size': 46154401, 'supportBackup': False, 'verCode': 7, 'pkgName': 'com.square_enix.android_googleplay.dq2_gp', 'iconUrl': 'http://qiniuggic.yyhudong.com/98dff63ffda5b4f38c75461eea6ea30f', 'supportCenterPlugin': True, 'ggVerCode': 1474522566, 'gpuRenderers': [1], 'minSdk': 10}, 'iconUrl': 'http://qiniuggic.yyhudong.com/98dff63ffda5b4f38c75461eea6ea30f', 'fileSize': '44.0MB', 'description': '本作是1993年发售的SF同名游戏的手机移植版，故事发生在前作结束后100年，讲述了继承上代主角血统的勇者子孙们，为了讨伐邪恶大神官“哈刚”而踏上冒险旅途的故事。游戏已破解验证', 'subheading': '44.0MB'}, {'subTitle': '45.7MB | 下载人数 少于10,000', 'title': '300勇士：帝国崛起', 'action': {'actionTarget': '/view/page?id=2000&amp;pa=6017d158', 'actionType': 1, 'param': '6017d158', 'actionData': {'param': '6017d158'}}, 'superscriptId': 6, 'downloadInfo': {'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=e75ed2a2d3b14ad2c9e44f9febbe6ee6', 'supportAccount': True, 'verName': '1.0.0', 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'gameName': '300勇士：帝国崛起', 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=e75ed2a2d3b14ad2c9e44f9febbe6ee6'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=8a34e1416f18ccba675e8b92ce274d3b'}], 'client': []}, 'supportDuplicate': False, 'supportPlugin': True, 'gameId': '6017d158', 'downloadType': 1, 'supportBox': False, 'size': 47906866, 'supportBackup': False, 'verCode': 6255, 'pkgName': 'com.warnerbros.game300ROE', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-5924e0069a95eee5', 'supportCenterPlugin': True, 'ggVerCode': 1474334064, 'gpuRenderers': [1], 'minSdk': 14}, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-5924e0069a95eee5', 'fileSize': '45.7MB', 'description': '《300勇士：帝国崛起》是一款动作游戏，由电影《300勇士》改编而来。玩家在游戏中会扮演雅典海军之父“忒弥斯托克利”在海上与敌人展开一场殊死搏斗', 'subheading': '45.7MB'}, {'subTitle': '1.2GB | 下载人数 100,000+', 'title': '不义联盟：人间之神（高通版）', 'action': {'actionTarget': '/view/page?id=2000&amp;pa=59169e45', 'actionType': 1, 'param': '59169e45', 'actionData': {'param': '59169e45'}}, 'superscriptId': 0, 'downloadInfo': {'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=f91d3da08bedb677b91092063591dcbe', 'supportAccount': True, 'verName': '2.14', 'dependCheck': False, 'dependGooglePlay': False, 'pluginCount': 0, 'gameName': '不义联盟：人间之神（高通版）', 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=f91d3da08bedb677b91092063591dcbe'}], 'webview': [], 'client': []}, 'supportDuplicate': False, 'supportPlugin': False, 'gameId': '59169e45', 'downloadType': 1, 'supportBox': False, 'size': 1342151394, 'supportBackup': False, 'verCode': 200697, 'pkgName': 'com.wb.goog.injustice', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-47a7894c51f1ca90', 'supportCenterPlugin': False, 'ggVerCode': 1488263293, 'gpuRenderers': [1], 'minSdk': 14}, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-47a7894c51f1ca90', 'fileSize': '1.2GB', 'description': '体验决斗带给你的震撼。', 'subheading': '1.2GB'}, {'subTitle': '233.8MB | 下载人数 100,000+', 'title': '纪念碑谷', 'action': {'actionTarget': '/view/page?id=2000&amp;pa=10b95bc5', 'actionType': 1, 'param': '10b95bc5', 'actionData': {'param': '10b95bc5'}}, 'superscriptId': 5, 'downloadInfo': {'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=6253e2109008757ac6d18a39172d4893', 'supportAccount': True, 'verName': '2.4.22', 'dependCheck': True, 'dependGooglePlay': False, 'pluginCount': 1, 'gameName': '纪念碑谷', 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=6253e2109008757ac6d18a39172d4893'}], 'webview': [], 'client': []}, 'supportDuplicate': False, 'supportPlugin': True, 'gameId': '10b95bc5', 'downloadType': 1, 'supportBox': True, 'size': 245192566, 'supportBackup': False, 'verCode': 2000402200, 'pkgName': 'com.ustwo.monumentvalley', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-d75d7413d455c391', 'supportCenterPlugin': True, 'ggVerCode': 1481276791, 'gpuRenderers': [1], 'minSdk': 10}, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-d75d7413d455c391', 'fileSize': '233.8MB', 'description': '巧夺天工的惊艳设计，视觉欺骗的艺术', 'subheading': '233.8MB'}, {'subTitle': '175.5MB | 下载人数 少于10,000', 'title': '最终幻想3', 'action': {'actionTarget': '/view/page?id=2000&amp;pa=e4426044', 'actionType': 1, 'param': 'e4426044', 'actionData': {'param': 'e4426044'}}, 'superscriptId': 6, 'downloadInfo': {'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=868262c7434a8ca0effbee5863476565', 'supportAccount': True, 'verName': '1.2.1', 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'gameName': '最终幻想3', 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=868262c7434a8ca0effbee5863476565'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=d29ef8360488600312937d987a6b5ad7'}], 'client': []}, 'supportDuplicate': False, 'supportPlugin': True, 'gameId': 'e4426044', 'downloadType': 1, 'supportBox': False, 'size': 183989936, 'supportBackup': False, 'verCode': 12100, 'pkgName': 'com.square_enix.android_googleplay.FFIII_GP', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-83254fdec06a43e9', 'supportCenterPlugin': True, 'ggVerCode': 1474522568, 'gpuRenderers': [1], 'minSdk': 8}, 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-83254fdec06a43e9', 'fileSize': '175.5MB', 'description': '日本国民级RPG最终幻想系列迎来了第3部', 'subheading': '175.5MB'}]}, 'title': '热搜', 'showMsg': {'isShow': False, 'msg': ''}}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_plugin_version_info: 获取视频插件升级信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.4')" >
+        pass</a>
+
+    <div id='div_pt2.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.4: {'rc': 0, 'msg': '成功', 'data': {'verCode': 5000534, 'timeoutSohu': 25000, 'timeoutLetv': 25000, 'timeoutYouku': 25000, 'showMsg': {'isShow': False, 'msg': ''}, 'timeoutBilibili': 25000, 'url': 'https://cdn2.yyhudong.com/ggplugin/videotools5.534.apk'}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_recommond_game: 获取下载页面推荐的游戏</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.5')" >
+        pass</a>
+
+    <div id='div_pt2.5' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.5').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.5: {'rc': 0, 'msg': '成功', 'data': {'showCount': 6, 'showMsg': {'isShow': False, 'msg': ''}, 'rmInstalled': True, 'recommend': [{'action': {'actionTarget': '/view/page?id=2000&amp;pa=32906ffe', 'actionType': 1, 'param': '32906ffe', 'actionData': {'param': '32906ffe'}}, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=a7731d80d6d2b2acbee3ac53d022469d', 'supportAccount': True, 'supportDuplicate': False, 'supportBox': False, 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=a7731d80d6d2b2acbee3ac53d022469d'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=8458e9a56795a70759305c891422b18e'}], 'client': []}, 'gpuRenderers': [1], 'supportPlugin': True, 'gameId': '32906ffe', 'downloadType': 1, 'verName': '1.1.8117', 'supportBackup': False, 'size': 644666962, 'gameName': '美国职业摔角2k15', 'verCode': 8117, 'pkgName': 'com.t2ksports.wwe2k15mobile', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-81de8eed63582b72', 'supportCenterPlugin': True, 'ggVerCode': 1474334106, 'desc': '以美国超人气摔跤赛事为原型打造的游戏，将带给玩家更加刺激摔角临场体验', 'minSdk': 14}, {'action': {'actionTarget': '/view/page?id=2000&amp;pa=01d9f590', 'actionType': 1, 'param': '01d9f590', 'actionData': {'param': '01d9f590'}}, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=47fe40de4bc45a177cd123b0464a8049', 'supportAccount': True, 'supportDuplicate': False, 'supportBox': True, 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 2, 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=47fe40de4bc45a177cd123b0464a8049'}], 'webview': [], 'client': []}, 'gpuRenderers': [1], 'supportPlugin': True, 'gameId': '01d9f590', 'downloadType': 1, 'verName': '1.7.88009', 'supportBackup': False, 'size': 456530438, 'gameName': '杀手：狙击手', 'verCode': 88009, 'pkgName': 'com.squareenixmontreal.hitmansniperandroid', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-a150575e8ee0806f', 'supportCenterPlugin': True, 'ggVerCode': 1487039055, 'desc': '暗黑神枪手，过足杀手瘾', 'minSdk': 16}, {'action': {'actionTarget': '/view/page?id=2000&amp;pa=386a423b', 'actionType': 1, 'param': '386a423b', 'actionData': {'param': '386a423b'}}, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=6ab59c8c26bd08b056a21f8799b20d76', 'supportAccount': False, 'supportDuplicate': False, 'supportBox': False, 'dependCheck': False, 'dependGooglePlay': False, 'pluginCount': 0, 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=6ab59c8c26bd08b056a21f8799b20d76'}], 'webview': [], 'client': []}, 'gpuRenderers': [1], 'supportPlugin': False, 'gameId': '386a423b', 'downloadType': 1, 'verName': '1.2.1', 'supportBackup': False, 'size': 416249284, 'gameName': '梦幻西游无双版', 'verCode': 11001, 'pkgName': 'com.netease.mhws', 'iconUrl': 'http://img.wdjimg.com/mms/icon/v1/e/41/96ab10b08292a2c77f5e3736b104841e_256_256.png', 'supportCenterPlugin': False, 'ggVerCode': 1606011056, 'desc': '梦幻西游也有即时制手游', 'minSdk': 9}, {'action': {'actionTarget': '/view/page?id=2000&amp;pa=08f17543', 'actionType': 1, 'param': '08f17543', 'actionData': {'param': '08f17543'}}, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=0c487ce3f3fd418fcf64393464797500', 'supportAccount': True, 'supportDuplicate': False, 'supportBox': True, 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 3, 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=0c487ce3f3fd418fcf64393464797500'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=7376774f9609f584cbe611c1606121e5'}], 'client': []}, 'gpuRenderers': [1], 'supportPlugin': True, 'gameId': '08f17543', 'downloadType': 1, 'verName': '0.0.22', 'supportBackup': False, 'size': 748434976, 'gameName': '杀出重围：陨落', 'verCode': 4000022, 'pkgName': 'com.squareenix.dxm', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-4f26a14a8998c7fd', 'supportCenterPlugin': True, 'ggVerCode': 1474522562, 'desc': '《杀出重围：陨落》 以同名系列小说《杀出重围：伊卡洛斯效应》为故事背景，这是一款剧情导向的动作RPG游戏，讲述的是英国SAS特工Ben Saxon在退伍后加入了私人军事组织暴政小组当雇佣兵，但却被他的', 'minSdk': 13}, {'action': {'actionTarget': '/view/page?id=2000&amp;pa=7ae09ab0', 'actionType': 1, 'param': '7ae09ab0', 'actionData': {'param': '7ae09ab0'}}, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=604bb0911d800615bf21e57f6ede6323', 'supportAccount': True, 'supportDuplicate': False, 'supportBox': False, 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=604bb0911d800615bf21e57f6ede6323'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=6b649f004b8c43b7652e37e695671631'}], 'client': []}, 'gpuRenderers': [1], 'supportPlugin': True, 'gameId': '7ae09ab0', 'downloadType': 1, 'verName': '3.0.3', 'supportBackup': False, 'size': 159134944, 'gameName': '火线指令', 'verCode': 303, 'pkgName': 'com.glu.modwarsniper', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-b34aff261ba9c0b1', 'supportCenterPlugin': True, 'ggVerCode': 1474333891, 'desc': '火线指令是一款第三人称的射击游戏，游戏的故事非常惨烈，你是唯一剩下的前线突击队员，你没有选择，你必须对抗独裁者的残忍袭击', 'minSdk': 7}, {'action': {'actionTarget': '/view/page?id=2000&amp;pa=90f010a4', 'actionType': 1, 'param': '90f010a4', 'actionData': {'param': '90f010a4'}}, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=f25cffa24591af00a942744ce7f169e5', 'supportAccount': True, 'supportDuplicate': False, 'supportBox': False, 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=f25cffa24591af00a942744ce7f169e5'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=3fa1dad14a4911e6bd3c852309e2cc3b'}], 'client': []}, 'gpuRenderers': [1], 'supportPlugin': True, 'gameId': '90f010a4', 'downloadType': 1, 'verName': '2.1.6', 'supportBackup': False, 'size': 503538517, 'gameName': '最终幻想6', 'verCode': 216, 'pkgName': 'com.square_enix.android_googleplay.FFVI', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-aafe476b00cae053', 'supportCenterPlugin': True, 'ggVerCode': 1474522580, 'desc': '日本国民级RPG最终幻想系列迎来了第6作', 'minSdk': 13}, {'action': {'actionTarget': '/view/page?id=2000&amp;pa=c8293cd8', 'actionType': 1, 'param': 'c8293cd8', 'actionData': {'param': 'c8293cd8'}}, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=68699058b9cc76aca2767ffeb76ebcb6', 'supportAccount': True, 'supportDuplicate': False, 'supportBox': False, 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=68699058b9cc76aca2767ffeb76ebcb6'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=b1283f9d3713cac3c90afd1808aa5c84'}], 'client': []}, 'gpuRenderers': [1], 'supportPlugin': True, 'gameId': 'c8293cd8', 'downloadType': 1, 'verName': '1.0.0', 'supportBackup': False, 'size': 207290051, 'gameName': '经典雷曼', 'verCode': 4, 'pkgName': 'com.ubisoft.raymananniversary', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-0b273e4d136d0ef1', 'supportCenterPlugin': True, 'ggVerCode': 1474334074, 'desc': '控制雷曼躲避障碍和敌人的堵截', 'minSdk': 14}, {'action': {'actionTarget': '/view/page?id=2000&amp;pa=0b8dbf14', 'actionType': 1, 'param': '0b8dbf14', 'actionData': {'param': '0b8dbf14'}}, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=242b86eda4712e01e069e8ec551b9c87', 'supportAccount': True, 'supportDuplicate': False, 'supportBox': False, 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 0, 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=242b86eda4712e01e069e8ec551b9c87'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=da35ded6e2ffd86e08b12f9860a1cc0a'}], 'client': []}, 'gpuRenderers': [1], 'supportPlugin': True, 'gameId': '0b8dbf14', 'downloadType': 1, 'verName': '1.2.0l', 'supportBackup': False, 'size': 276584773, 'gameName': '决斗骑士', 'verCode': 12032, 'pkgName': 'com.gameloft.android.ANMP.GloftOKHM', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-fe4f8d07a313fd42', 'supportCenterPlugin': True, 'ggVerCode': 1474333858, 'desc': '梦幻旅程：成为骑士&amp;一路对决夺取胜利！和成千上万的玩家在这个荣耀与冒险的游戏决斗', 'minSdk': 14}, {'action': {'actionTarget': '/view/page?id=2000&amp;pa=46684234', 'actionType': 1, 'param': '46684234', 'actionData': {'param': '46684234'}}, 'downloadUrl': 'https://ggapi.ggzhushou.cn:444/view/dl?id=fd41ee41b1bde55dfd382675c6a9b142', 'supportAccount': True, 'supportDuplicate': False, 'supportBox': True, 'dependCheck': True, 'dependGooglePlay': True, 'pluginCount': 1, 'downloadLinks': {'direct': [{'name': '直接下载', 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=fd41ee41b1bde55dfd382675c6a9b142'}], 'webview': [{'name': '百度云地址', 'index': 2, 'desc': '', 'url': 'https://ggapi.ggzhushou.cn:444/view/dl?id=3bf565d19f58863bfcc6e4a549955669'}], 'client': []}, 'gpuRenderers': [1], 'supportPlugin': True, 'gameId': '46684234', 'downloadType': 1, 'verName': '2.2.1', 'supportBackup': True, 'size': 50283387, 'gameName': '愤怒的小鸟太空版', 'verCode': 2143, 'pkgName': 'com.rovio.angrybirdsspace.ads', 'iconUrl': 'http://7xleaj.com1.z0.glb.clouddn.com/-f1323aaefe137cd9', 'supportCenterPlugin': True, 'ggVerCode': 1474522501, 'desc': '冲出地球走向宇宙', 'minSdk': 9}]}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test_update_info: 获取升级信息</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.6')" >
+        pass</a>
+
+    <div id='div_pt2.6' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.6').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.6: {'rc': 0, 'msg': '成功', 'data': {'showMsg': {'isShow': False, 'msg': ''}}}
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>7</td>
+    <td class="text text-success">6</td>
+    <td class="text text-danger">1</td>
+    <td class="text text-warning">0</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>
