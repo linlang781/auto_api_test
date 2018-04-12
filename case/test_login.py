@@ -5,40 +5,53 @@
 @version: 1.0
 @author: liuyu
 @license: None
-@file: test_login.py.py
-@time: 17-4-6 上午1:42
+@file: test_login.py
+@time: 17-4-19 上午10:41
 """
-import unittest
+import unittest, requests
 from lib.config_operate import ConfigOperate
-import request
-from lib.printlog import PrintLog
+from lib.tools import *
+from lib.http_requests import HttpRequests
+from config.get_base_parms import *
 
-class TestLogin(unittest.TestCase):
-    '''登录模块测试'''
+class TestUser(unittest.TestCase):
+    '''用户相关接口测试'''
 
     def setUp(self):
+        self.url = ConfigOperate().get_config('url_config', 'url')
+        self.port = ConfigOperate().get_config('url_config', 'port')
+        self.headers = {
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+            "Accept-Encoding": "gzip, deflate, br",
+            "Accept-Language": "zh-CN,zh;q=0.9",
+            "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36"
+        }
 
-        self.url = ConfigOperate(r'C:\Users\Administrator\Desktop\auto_api_test-master\config\global.ini').get_config('common', 'url')
-        self.port = ConfigOperate(r'C:\Users\Administrator\Desktop\auto_api_test-master\config\global.ini').get_config('common', 'port')
-        self.data = {}
 
-    def test_login(self):
-        ''' 测试登录 '''
-        r= request.
-        rp = HttpRequests.do_post(self.url+'/user/reg', self.data)
-        if
-        # if rp[0] is True:
-        #     result = rp[1].json()
-        #     print(result)
-        #     PrintLog.print_log_info('登录接口测试通过' + '\n' + str(result))
-        #     self.assertEqual(result['rc'], 0)
-        # else:
-        #     self.fail('接口请求出错,HTTP响应为%d' % rp[1])
+    def test_reg(self):
+        '''用户注册'''
+        params = {
+            "account": "781456868@qq.com",
+            "validCode": "",
+            "geetest_challenge": "",
+            "geetest_validate": "",
+            "geetest_seccode": "",
+            "type": "1",
+            "ctype": "pc"
+        }
+        response = requests.post(self.url + ':' + self.port + '/FMCloud/validcode/reg?timestamp=' + str(getnowstamp()), json=params, verify=False, headers=self.headers)
+        # self.assertEqual(response.status_code, 200, '断言状态码为200')
+        print(response.text)
 
     def tearDown(self):
         pass
 
 if __name__ == '__main__':
-    unittest.main()
+    # 构造测试集
+    suite = unittest.TestSuite()
+    suite.addTest(TestForum("test_reg"))
+    # 执行测试
+    runner = unittest.TextTestRunner()
+    runner.run(suite)
 
 

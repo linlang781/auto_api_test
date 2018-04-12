@@ -17,15 +17,15 @@ import smtplib
 class SendEmail(object):
     # 构造函数：初始化基本信息
     def __init__(self, host, user, passwd):
-
         lInfo = user.split("@")
         self._user = user
         self._account = lInfo[0]
         self._me = self._account + "<" + self._user + ">"
 
         server = smtplib.SMTP()
-        server.connect(host)
-        server.login(self._account, passwd)
+        # server = smtplib.SMTP_SSL(host, 465)
+        server.connect(host, 25)
+        server.login(self._user, passwd)
         self._server = server
 
         # 发送文件或html邮件
@@ -62,15 +62,14 @@ class SendEmail(object):
         self._server.quit()
         self._server.close()
 
-# if __name__ == '__main__':
-#
-#     mailto_list = ['liuyu@yyhudong.com']
-#     cc_list = ['781456868@qq.com']
-#     mail = SendEmail('smtp.163.com', '18724353405@163.com', 'qq123123')
-#     file_path_tuple = ("./test.html", "./conig.ini", "./mylog.log")
-#     if mail.send_email(mailto_list, cc_list, file_path=file_path_tuple):
-#         print "发送成功"
-#     else:
-#         print "发送失败"
+if __name__ == '__main__':
+
+    mailto_list = ['liuyu01@fengmap.com']
+    cc_list = ['liuyu01@fengmap.com']
+    mail = SendEmail('smtp.mxhichina.com', 'liuyu01@fengmap.com', 'passwd')
+    if mail.send_email(mailto_list, cc_list, sub='自动化测试详情', content='这是报告'):
+        print('0')
+    else:
+        print('1')
 
 

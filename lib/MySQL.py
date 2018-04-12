@@ -15,11 +15,12 @@ import pymysql
 class ConnMysql(object):
 
     def __init__(self):
-        conf = ConfigOperate('C:\Users\Administrator\Desktop\auto_api_test-master\config/global.ini')
-        self.host = conf.get_config('dbconfig', 'host')
-        self.port = int(conf.get_config('dbconfig', 'port'))
-        self.user = conf.get_config('dbconfig', 'user')
-        self.passwd = conf.get_config('dbconfig', 'passwd')
+        conf = ConfigOperate()
+        self.host = conf.get_config('db_config', 'host')
+        print(self.host)
+        self.port = int(conf.get_config('db_config', 'port'))
+        self.user = conf.get_config('db_config', 'user')
+        self.passwd = conf.get_config('db_config', 'passwd')
         try:
             self.conn = pymysql.connect(host=self.host, port=self.port, user=self.user, passwd=self.passwd)
             self.cur = self.conn.cursor()
@@ -75,6 +76,8 @@ class ConnMysql(object):
 
 if __name__ == '__main__':
     con = ConnMysql()
-    con.do_select("select * from ggserver.iplay_products where `name` like '%游戏助手%'")
-    result = con.fetch_one_row()
-    print(result[1])
+    result = con.do_update("insert into testinfo.login_data VALUES ('ffff6','hhh9')")
+    if result:
+        print('0')
+    else:
+        print(result)

@@ -87,3 +87,4 @@
 {'tips': {}, 'rc': 0, 'msg': '成功', 'data': {'score_var': 4, 'showMsg': {'isShow': True, 'msg': '分享奖励, + 4积分2经验'}}}
 2017-05-02 11:22:30,238 - printlog.py[line:41] - INFO: 我的接口测试结束
 2018-04-04 14:01:39,066 - printlog.py[line:49] - ERROR: test
+2018-04-12 11:46:38,831 - printlog.py[line:49] - ERROR: test

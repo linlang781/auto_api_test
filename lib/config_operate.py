@@ -20,9 +20,9 @@ class ConfigOperate(object):
     配置文件相关操作
     """
 
-    def __init__(self, file_path):
+    def __init__(self):
 
-        self.file_path = file_path
+        self.file_path = r'./../config/global.ini'
         self.config = ConfigParser()
 
     def get_config(self, section, option):
@@ -60,4 +60,8 @@ class ConfigOperate(object):
         self.config.write(open(self.file_path, 'w'))
         self.config.write(sys.stdout)
 
+
+if __name__ == '__main__':
+    print((ConfigOperate().get_config('email','send_to')))
+    print(os.path.dirname(__file__))
 

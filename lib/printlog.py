@@ -8,9 +8,11 @@
 @file: printlog.py
 @time: 17-4-7 上午2:03
 """
-import logging
+import logging, os
 
 # 第一步，创建一个logger
+prodir = os.path.join('.', 'log')
+path = os.path.join()
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)  # Log等级总开关
 
@@ -27,6 +29,7 @@ ch.setLevel(logging.WARNING)  # 输出到console的log等级的开关
 formatter = logging.Formatter("%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s")
 fh.setFormatter(formatter)
 ch.setFormatter(formatter)
+
 
 # 第五步，将logger添加到handler里面
 logger.addHandler(fh)
