@@ -14,14 +14,12 @@ import unittest, time
 from lib.HTMLTestRunnerCN import HTMLTestRunner
 from lib.sendmail import SendEmail
 from lib.config_operate import ConfigOperate
-
-
-test_dir = './../case/'
+test_dir = './case/'
 discover = unittest.defaultTestLoader.discover(test_dir, pattern='test*.py')
 
 if __name__ == '__main__':
     now = time.strftime('%Y-%m-%d %H_%M_%S')
-    report_file_name = './../report/' + now + 'result.html'
+    report_file_name = './report/' + now + 'result.html'
     fp = open(report_file_name, 'wb')
     runner = HTMLTestRunner(stream=fp, title='接口自动化测试报告', description='用例执行情况如下')
     runner.run(discover)

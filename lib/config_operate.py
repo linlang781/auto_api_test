@@ -22,7 +22,7 @@ class ConfigOperate(object):
 
     def __init__(self):
 
-        self.file_path = r'./../config/global.ini'
+        self.file_path = r'C:/Users/Administrator/Desktop/auto_api_test-master/config/global.ini'
         self.config = ConfigParser()
 
     def get_config(self, section, option):

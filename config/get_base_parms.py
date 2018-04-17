@@ -11,6 +11,7 @@
 from lib.MySQL import ConnMysql
 from config.get_token import get_token
 import random
+import execjs
 
 
 def get_user_agent(agent):
@@ -25,6 +26,22 @@ def get_user_agent(agent):
      elif agent == 'webkit':
          return webkit
 
+def get_des_psswd(data, key):
+    jsstr = get_js()
+    ctx = execjs.compile(jsstr)
+    return (ctx.call('strEnc', data, key))
+
+
+
+def get_js():
+    f = open("./../lib/des.js", 'r', encoding='utf-8')
+    line = f.readline()
+    htmlstr = ''
+    while line:
+        htmlstr = htmlstr+line
+        line = f.readline()
+    return htmlstr
+
 
 if __name__ == '__main__':
-    print()
+    print(get_des_psswd('123456', 'RUY2OTdCRUFFRTg0OUQ0Q0E0ODNDRDMxN0YzOEEzREQudG9tY2F0OTQ='))
