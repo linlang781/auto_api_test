@@ -64,12 +64,11 @@ class SendEmail(object):
 
 if __name__ == '__main__':
 
-    mailto_list = ['liuyu01@fengmap.com']
-    cc_list = ['liuyu01@fengmap.com']
-    mail = SendEmail('smtp.mxhichina.com', 'liuyu01@fengmap.com', 'passwd')
-    if mail.send_email(mailto_list, cc_list, sub='自动化测试详情', content='这是报告'):
-        print('0')
-    else:
-        print('1')
+    # mailto_list = ['liuyu01@fengmap.com']
+    # cc_list = ['liuyu01@fengmap.com']
+    # if mail.send_email(mailto_list, cc_list, sub='自动化测试详情', content='这是报告'):
+    #     print('0')
+    # else:
+    #     print('1')
 
 
