@@ -15,14 +15,19 @@ from configparser import ConfigParser
 
 
 class ConfigOperate(object):
-
     """
     配置文件相关操作
     """
 
-    def __init__(self):
-
-        self.file_path = r'C:/Users/Administrator/Desktop/auto_api_test-master/config/global.ini'
+    def __init__(self, file_name):
+        '''
+        :param file_name: 配置文件名称
+        '''
+        cwd_path = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+        conf_path = os.path.join(cwd_path, 'config')
+        file_path = os.path.join(conf_path, '%s.ini' % file_name)
+        self.file_path = file_path
+        print(self.file_path)
         self.config = ConfigParser()
 
     def get_config(self, section, option):
@@ -62,6 +67,4 @@ class ConfigOperate(object):
 
 
 if __name__ == '__main__':
-    print((ConfigOperate().get_config('email','send_to')))
-    print(os.path.dirname(__file__))
-
+    ConfigOperate('./../config/DB_config.ini').get_config('mysql_conf', 'ip')

@@ -12,12 +12,11 @@ import xlrd
 
 
 class XlsOpreate(object):
-
     """
     封装常用Xls操作
     """
-    def __init__(self, xlsname):
 
+    def __init__(self, xlsname):
         """
         定义类的变量
         """
@@ -26,7 +25,6 @@ class XlsOpreate(object):
         self.xlrd_object = xlrd.open_workbook(self.xlsname)
 
     def getsheets(self):
-
         """
         获取Xls的Sheet
         :return sheet list
@@ -34,7 +32,6 @@ class XlsOpreate(object):
         return self.xlrd_object.sheet_names()
 
     def getrows(self, sheetname):
-
         """
         获取sheet页行数
         """
@@ -42,7 +39,6 @@ class XlsOpreate(object):
         return worksheet.nrows
 
     def getcols(self, sheetname):
-
         """
         获取sheet页列数
         """
@@ -63,7 +59,7 @@ class XlsOpreate(object):
         worksheet = self.xlrd_object.sheet_by_name(sheetname)
         return worksheet.col_values(coln)
 
-    def readcell(self, sheetname,rown,coln):
+    def readcell(self, sheetname, rown, coln):
         """
         获取指定坐标的数据
         """

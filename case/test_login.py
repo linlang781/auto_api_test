@@ -11,8 +11,8 @@
 import unittest, requests
 from lib.config_operate import ConfigOperate
 from lib.tools import *
-from lib.http_requests import HttpRequests
-from config.get_base_parms import *
+from lib.HttpRequest import HttpRequests
+from common.get_base_parms import *
 
 class TestUser(unittest.TestCase):
     '''用户相关接口测试'''
@@ -49,7 +49,7 @@ class TestUser(unittest.TestCase):
 if __name__ == '__main__':
     # 构造测试集
     suite = unittest.TestSuite()
-    suite.addTest(TestForum("test_reg"))
+    suite.addTest(TestUser("test_reg"))
     # 执行测试
     runner = unittest.TextTestRunner()
     runner.run(suite)

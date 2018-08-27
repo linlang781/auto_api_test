@@ -1,6 +1,0 @@
-[2018-04-12 14:51:21,233] - logger.py] - INFO: rest
-[2018-04-12 14:51:28,591] - logger.py] - INFO: rest
-[2018-04-12 14:51:32,564] - logger.py] - INFO: rest
-2018-04-12 14:52:35,652 - logger.py[line:37] - INFO: rest
-2018-04-12 14:53:11,983 - logger.py[line:37] - INFO: rest
-2018-04-12 14:53:11,984 - logger.py[line:39] - DEBUG: dddd
