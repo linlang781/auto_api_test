@@ -9,7 +9,7 @@
 @time: 17-4-13 下午12:18
 """
 from lib.MySQL import ConnMysql
-from config.get_token import get_token
+from common.get_token import get_token
 import random
 import execjs
 

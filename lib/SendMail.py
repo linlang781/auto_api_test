@@ -22,9 +22,9 @@ class SendEmail(object):
         self._account = lInfo[0]
         self._me = self._account + "<" + self._user + ">"
 
-        server = smtplib.SMTP()
-        # server = smtplib.SMTP_SSL(host, 465)
-        server.connect(host, 25)
+        # server = smtplib.SMTP()
+        server = smtplib.SMTP_SSL(host, 465)
+        # server.connect(host, 25)
         server.login(self._user, passwd)
         self._server = server
 

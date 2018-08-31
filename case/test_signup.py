@@ -9,17 +9,12 @@
 @time: 17-4-19 上午10:41
 """
 import unittest, requests
-from lib.config_operate import ConfigOperate
-from lib.tools import *
-from lib.HttpRequest import HttpRequests
-from common.get_base_parms import *
 
-class TestUser(unittest.TestCase):
-    '''用户相关接口测试'''
+class TestSignUp(unittest.TestCase):
+    '''报名接口测试'''
 
     def setUp(self):
-        self.url = ConfigOperate().get_config('url_config', 'url')
-        self.port = ConfigOperate().get_config('url_config', 'port')
+        self.url = 'http://bj.tuanche.com/bentley/api/applyForTcjAsyn/'
         self.headers = {
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
             "Accept-Encoding": "gzip, deflate, br",
@@ -27,21 +22,22 @@ class TestUser(unittest.TestCase):
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36"
         }
 
-
-    def test_reg(self):
-        '''用户注册'''
+    def test_sign(self):
+        '''报名'''
+        # name=linlang&=15601128781&cityId=10&carStyleId=32633&brandId=67&groupbyType=1&groupbyNum=2001
         params = {
-            "account": "781456868@qq.com",
-            "validCode": "",
-            "geetest_challenge": "",
-            "geetest_validate": "",
-            "geetest_seccode": "",
-            "type": "1",
-            "ctype": "pc"
+            "name": "linlang9",
+            "phone": 15601128781,
+            "cityId": 10,
+            "carStyleId": 32633,
+            "brandId": 67,
+            "groupbyType": 1,
+            "groupbyNum": 2001
         }
-        response = requests.post(self.url + ':' + self.port + '/FMCloud/validcode/reg?timestamp=' + str(getnowstamp()), json=params, verify=False, headers=self.headers)
+        response = requests.post(self.url, data=params, headers=self.headers)
         # self.assertEqual(response.status_code, 200, '断言状态码为200')
         print(response.text)
+        self.assertEqual(response.json()['code'], 10000, '断言结果为10000')
 
     def tearDown(self):
         pass
@@ -49,7 +45,7 @@ class TestUser(unittest.TestCase):
 if __name__ == '__main__':
     # 构造测试集
     suite = unittest.TestSuite()
-    suite.addTest(TestUser("test_reg"))
+    suite.addTest(TestSignUp("test_sign"))
     # 执行测试
     runner = unittest.TextTestRunner()
     runner.run(suite)

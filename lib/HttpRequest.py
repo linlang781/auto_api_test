@@ -8,67 +8,96 @@
 @file: HttpRequest.py
 @time: 17-4-28 下午2:16
 """
-import json
+
 import requests
-from lib.tools import *
+import socket
+import json
+from lib.log import LOG
+
+METHODS = ['GET', 'POST', 'HEAD', 'TRACE', 'PUT', 'DELETE', 'OPTIONS', 'CONNECT']
 
 
-class HttpRequests(object):
-    @staticmethod
-    def do_post(url, params, **kwargs):
+class UnSupportMethodException(Exception):
+    """当传入的method的参数不是支持的类型时抛出此异常。"""
+    pass
 
-        if kwargs is not None:
-            params.update(kwargs)
-            response = requests.post(url, data=json.dumps(params))
-            if response.status_code == 200:
-                return True, response
+
+class HTTPClient(object):
+    """
+    http请求的client。初始化时传入url、method等，可以添加headers和cookies，但没有auth、proxy。
+    """
+    def __init__(self, url, method='GET', headers=None, cookies=None):
+        """headers: 字典。 例：headers={'Content_Type':'text/html'}，cookies也是字典。"""
+        self.url = url
+        self.session = requests.session()
+        self.method = method.upper()
+        if self.method not in METHODS:
+            raise UnSupportMethodException('不支持的method:{0}，请检查传入参数！'.format(self.method))
+        self.set_headers(headers)
+        self.set_cookies(cookies)
+
+    def set_headers(self, headers):
+        if headers:
+            self.session.headers.update(headers)
+
+    def set_cookies(self, cookies):
+        if cookies:
+            self.session.cookies.update(cookies)
+
+    def send(self, params=None, data=None, **kwargs):
+        response = self.session.request(method=self.method, url=self.url, params=params, data=data, **kwargs)
+        response.encoding = 'utf-8'
+        LOG.debug('{0} {1}'.format(self.method, self.url))
+        LOG.debug('请求成功: {0}\n{1}'.format(response, response.text))
+        return response
+
+
+class TCPClient(object):
+    """用于测试TCP协议的socket请求，对于WebSocket，socket.io需要另外的封装"""
+    def __init__(self, domain, port, timeout=30, max_receive=102400):
+        self.domain = domain
+        self.port = port
+        self.connected = 0  # 连接后置为1
+        self.max_receive = max_receive
+        self._sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self._sock.settimeout(timeout)
+
+    def connect(self):
+        """连接指定IP、端口"""
+        if not self.connected:
+            try:
+                self._sock.connect((self.domain, self.port))
+            except socket.error as e:
+                LOG.exception(e)
             else:
-                return False, response.status_code
+                self.connected = 1
+                LOG.debug('TCPClient connect to {0}:{1} success.'.format(self.domain, self.port))
+
+    def send(self, data, dtype='str', suffix=''):
+        """向服务器端发送send_string，并返回信息，若报错，则返回None"""
+        if dtype == 'json':
+            send_string = json.dumps(data) + suffix
         else:
-            response = requests.post(url, data=json.dumps(params))
-            if response.status_code == 200:
-                return True, response
-            else:
-                return False, response.status_code
+            send_string = data + suffix
+        self.connect()
+        if self.connected:
+            try:
+                self._sock.send(send_string.encode())
+                LOG.debug('TCPClient Send {0}'.format(send_string))
+            except socket.error as e:
+                LOG.exception(e)
 
+            try:
+                rec = self._sock.recv(self.max_receive).decode()
+                if suffix:
+                    rec = rec[:-len(suffix)]
+                LOG.debug('TCPClient received {0}'.format(rec))
+                return rec
+            except socket.error as e:
+                LOG.exception(e)
 
-if __name__ == '__main__':
-    header = {
-        'accept': 'application/json, text/javascript, */*; q=0.01',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36',
-    }
-
-    data_params = {
-        "fmuserName": "15601128781",
-        "isAuto": 'false',
-        "password": '57BC148FD3FBDF8BD8A306B007E3F312'
-    }
-    reg_params = {"account": "781456868@qq.com", "validCode": "", "geetest_challenge": "", "geetest_validate": "",
-                  "geetest_seccode": "", "type": "1", "ctype": "pc"}
-    # cookies = 'JSESSIONID=79F94A9DDC5D60D0A56FCCD65BFC577C.tomcat94; Hm_lvt_79f1636012c7c583a8d9e22d74665c58=1522831007; undefined=false; Hm_lpvt_79f1636012c7c583a8d9e22d74665c58=1522831683'
-    # r = requests.post('https://192.168.1.94/FMCloud/user/reg', data=json.dumps(data_params), verify=False)
-    cookies = {
-        "JSESSIONID": "F9996F4FD6E598C6EA062FCCC91F209F.tomcat94",
-        "Hm_lvt_79f1636012c7c583a8d9e22d74665c58": "1522831007",
-        'undefined': 'false',
-        'Hm_lpvt_79f1636012c7c583a8d9e22d74665c58': '1522831683',
-    }
-    timestrap = getnowstamp()
-    # key = requests.get('https://192.168.1.94/FMCloud/user/dk?_=1523174632297', verify=False)
-    r = requests.post('https://192.168.1.94/FMCloud/user/login' + '?' + str(timestrap),
-                      json=data_params,
-                      cookies=cookies,
-                      # cert=r'C:\Users\Administrator\Desktop\b64cer.cer',
-                      verify=False
-                      )
-    # https://192.168.1.94/FMCloud/validcode/reg?timestamp=1523174860489
-    reg = requests.post('https://192.168.1.94/FMCloud/validcode/reg',
-                        json=reg_params,
-                        verify=False
-                        )
-
-    # print(key.text)
-
-    print(r.text)
-    print(reg.text)
+    def close(self):
+        """关闭连接"""
+        if self.connected:
+            self._sock.close()
+            LOG.debug('TCPClient closed.')

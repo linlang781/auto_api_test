@@ -34,8 +34,8 @@ if __name__ == '__main__':
     email_smtp = ConfigOperate('global').get_config('email_base', 'smtp')
     send_conf = SendEmail(email_smtp, email_username, email_passwd)
     content = 'http接口自动化测试完成，测试通过:%s,测试失败：%s，未知错误：%s,详情见附件' % (m.success_count, m.failure_count, m.error_count)
-    try:
-        send_conf.send_email(to_list, cc_list, sub='接口自动化测试报告' + now, content=content, file_path=file_path_tuple)  # content=open(report_file_name, 'rb').read()
+    if send_conf.send_email(to_list, cc_list, sub='接口自动化测试报告' + now, content=content, file_path=file_path_tuple):  # content=open(report_file_name, 'rb').read()
         LOG.info('测试报告邮件发送成功')
-    except Exception as e:
-        LOG.info('邮件发送失败，错误原因为{0}'.format(e))
+    else:
+        LOG.info('邮件发送失败')
+

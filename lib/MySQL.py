@@ -15,12 +15,12 @@ import pymysql
 class ConnMysql(object):
 
     def __init__(self):
-        conf = ConfigOperate()
-        self.host = conf.get_config('db_config', 'host')
+        conf = ConfigOperate('DB_config')
+        self.host = conf.get_config('mysql_conf', 'host')
         print(self.host)
-        self.port = int(conf.get_config('db_config', 'port'))
-        self.user = conf.get_config('db_config', 'user')
-        self.passwd = conf.get_config('db_config', 'passwd')
+        self.port = int(conf.get_config('mysql_conf', 'port'))
+        self.user = conf.get_config('mysql_conf', 'username')
+        self.passwd = conf.get_config('mysql_conf', 'password')
         try:
             self.conn = pymysql.connect(host=self.host, port=self.port, user=self.user, passwd=self.passwd)
             self.cur = self.conn.cursor()
@@ -76,8 +76,7 @@ class ConnMysql(object):
 
 if __name__ == '__main__':
     con = ConnMysql()
-    result = con.do_update("insert into testinfo.login_data VALUES ('ffff6','hhh9')")
-    if result:
-        print('0')
-    else:
-        print(result)
+    con.do_select("SELECT * FROM che100.tc_carstyle ORDER BY id DESC LIMIT 10")
+    for i in con.fetch_all_rows():
+        if i[1] == '测试车型0830':
+            print(i)
