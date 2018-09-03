@@ -9,6 +9,7 @@
 @time: 17-4-12 下午2:01
 """
 from lib.config_operate import ConfigOperate
+from lib.log import LOG
 import pymysql
 
 
@@ -17,7 +18,6 @@ class ConnMysql(object):
     def __init__(self):
         conf = ConfigOperate('DB_config')
         self.host = conf.get_config('mysql_conf', 'host')
-        print(self.host)
         self.port = int(conf.get_config('mysql_conf', 'port'))
         self.user = conf.get_config('mysql_conf', 'username')
         self.passwd = conf.get_config('mysql_conf', 'password')
@@ -25,13 +25,13 @@ class ConnMysql(object):
             self.conn = pymysql.connect(host=self.host, port=self.port, user=self.user, passwd=self.passwd)
             self.cur = self.conn.cursor()
         except Exception as e:
-            print('数据库连接错误', e)
+            LOG.error('数据库连接错误', e)
 
     def do_select(self, query):
         try:
             result_db = self.cur.execute(query)
         except Exception as e:
-            print('查询命令错误', e)
+            LOG.error('查询命令错误', e)
             result_db = False
         return result_db
 
@@ -45,7 +45,7 @@ class ConnMysql(object):
             result_db = self.cur.execute(query)
             self.commit()
         except Exception as e:
-            print('查询命令错误', e)
+            LOG.error('查询命令错误', e)
             result_db = False
         return result_db
 

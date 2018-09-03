@@ -8,6 +8,7 @@
 @file: SendMail.py
 @time: 17-4-1 上午1:03
 """
+from lib.log import LOG
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
@@ -54,7 +55,7 @@ class SendEmail(object):
             self._server.sendmail(self._me, to_list, msg.as_string())
             return True
         except Exception as e:
-            print(str(e))
+            LOG.error(str(e))
             return False
 
     # 析构函数：释放资源

@@ -7,6 +7,7 @@
 @time: 2018/8/27
 """
 import redis
+from lib.log import LOG
 
 
 class PyRedis():
@@ -14,7 +15,7 @@ class PyRedis():
         try:
             self.r = redis.Redis(host=ip, password=password, port=port, db=db)  # 连接redis固定方法,这里的值必须固定写死
         except Exception as e:
-            print('redis连接失败，错误信息%s' % e)
+            LOG.error('redis连接失败，错误信息%s' % e)
 
     def str_get(self, k):
         res = self.r.get(k)  # 会从服务器传对应的值过来，性能慢
@@ -31,7 +32,7 @@ class PyRedis():
         if tag:
             self.r.delete(k)
         else:
-            print('这个key不存在')
+            LOG.error('这个key不存在')
 
     def hash_get(self, name, k):  # 哈希类型存储的是多层字典（嵌套字典）
         res = self.r.hget(name, k)
@@ -54,10 +55,10 @@ class PyRedis():
     def hash_del(self, name, k):
         res = self.r.hdel(name, k)
         if res:
-            print('删除成功')
+            LOG.info('删除成功')
             return 1
         else:
-            print('删除失败，该key不存在')
+            LOG.info('删除失败，该key不存在')
             return 0
 
     @property  # 属性方法，
@@ -65,7 +66,7 @@ class PyRedis():
     # 如果不加这个@property,使用时A=MyRedis(), A.clean_redis()   后面需要加这个函数的括号
     def clean_redis(self):
         self.r.flushdb()  # 清空 redis
-        print('清空redis成功！')
+        LOG.info('清空redis成功！')
         return 0
 
 

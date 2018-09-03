@@ -32,3 +32,10 @@ class DubboRequest(object):
             LOG.info('测试失败，原因：%s' % e)
             res = {'code': 1, 'result': e}
         return res
+
+if __name__ == '__main__':
+    ip = '10.0.2.99'
+    port = '20081'
+    method = 'com.tuanche.service.AutoshowSearchService.getById'
+    params = '1046'
+

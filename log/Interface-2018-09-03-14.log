@@ -1,0 +1,3 @@
+[2018-09-03 14:42:01.742400] DEBUG: Interface: POST http://bj.tuanche.com/bentley/api/applyForTcjAsyn/
+[2018-09-03 14:42:01.743400] DEBUG: Interface: 请求成功: <Response [200]>
+{"code":10000,"msg":null,"result":{"result":{"groupbuyDateStr":"2018-08-25","applyId":13764362,"weixin":null,"sk":"a27a56059202dd57609c3db4d88aa1fe","weixinUrl":null,"ticketInfo":{"receive":0,"beginTimePeriods":null,"periodsId":2001,"pid":0,"updateTime":1535527334000,"cityId":10,"checkTicketOpenid":"","applyId":13764283,"checkTime":null,"createTime":1535527334000,"phone":15601128781,"carStyleId":32633,"getTicketOpenid":"","brandId":67,"hasChild":0,"openIdNotNull":0,"name":null,"id":16481965,"ticketCode":42001051723,"status":0}},"msg":"报名成功","code":10000}}
