@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f8c8914e-288f-4d18-9341-7666094a34be" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/case/test_app_search_class.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/generator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/case/test_signup.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/test_signup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/UrlConf.ini" beforeDir="false" afterPath="$PROJECT_DIR$/config/UrlConf.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/case/test_signup.py" beforeDir="false" afterPath="$PROJECT_DIR$/case/test_pc_signup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +69,7 @@
           <entry key="ini" value="18" />
           <entry key="js" value="1" />
           <entry key="log" value="18" />
-          <entry key="py" value="102" />
+          <entry key="py" value="104" />
           <entry key="txt" value="2" />
           <entry key="yaml" value="2" />
         </counts>
@@ -80,16 +80,16 @@
           <entry key="Ini" value="6" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="32" />
-          <entry key="Python" value="102" />
+          <entry key="Python" value="104" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="34" />
+          <entry key="dummy" value="38" />
           <entry key="ini" value="408" />
           <entry key="js" value="1" />
-          <entry key="py" value="3968" />
+          <entry key="py" value="4429" />
           <entry key="yaml" value="1" />
         </counts>
       </usages-collector>
@@ -97,8 +97,8 @@
         <counts>
           <entry key="Ini" value="140" />
           <entry key="JavaScript" value="1" />
-          <entry key="PLAIN_TEXT" value="302" />
-          <entry key="Python" value="3968" />
+          <entry key="PLAIN_TEXT" value="306" />
+          <entry key="Python" value="4429" />
           <entry key="YAML" value="1" />
         </counts>
       </usages-collector>
@@ -106,14 +106,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/case/test_signup.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/case/test_pc_signup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-164">
-              <caret line="57" column="61" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
+            <state relative-caret-position="290">
+              <caret line="13" column="19" lean-forward="true" selection-end-line="108" />
+              <folding>
+                <marker date="1536046290156" expanded="true" signature="1648:1653" ph="..." />
+                <marker date="1536046290156" expanded="true" signature="4422:5001" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/case/test_app_search_class.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="478">
+              <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
               <folding>
                 <element signature="e#137#162#0" expanded="true" />
-                <marker date="1536043338908" expanded="true" signature="1620:1625" ph="..." />
+                <marker date="1536049482780" expanded="true" signature="5113:5694" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/generator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="53" column="27" lean-forward="true" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+              <folding>
+                <element signature="e#73#86#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -145,17 +170,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/global.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/DB_config.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+            <state relative-caret-position="261">
+              <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -179,15 +195,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <caret column="11" selection-start-column="11" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/Interface-2018-09-04-11.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="29">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -274,13 +281,15 @@
         <option value="$PROJECT_DIR$/lib/SendMail.py" />
         <option value="$PROJECT_DIR$/lib/PyRedis.py" />
         <option value="$PROJECT_DIR$/lib/MySQL.py" />
-        <option value="$PROJECT_DIR$/config/global.ini" />
         <option value="$PROJECT_DIR$/common/sign_up.py" />
         <option value="$PROJECT_DIR$/lib/config_operate.py" />
         <option value="$PROJECT_DIR$/lib/tools.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/config/UrlConf.ini" />
+        <option value="$PROJECT_DIR$/config/global.ini" />
         <option value="$PROJECT_DIR$/case/test_signup.py" />
+        <option value="$PROJECT_DIR$/case/test_pc_signup.py" />
+        <option value="$PROJECT_DIR$/case/test_app_search_class.py" />
       </list>
     </option>
   </component>
@@ -355,15 +364,15 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\Desktop\auto_api_test\lib" />
+      <recent name="C:\Users\admin\Desktop\auto_api_test\case" />
+      <recent name="C:\Users\admin\Desktop\auto_api_test\report" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\admin\Desktop\auto_api_test\common" />
       <recent name="C:\Users\Administrator\Desktop\auto_api_test-master" />
       <recent name="C:\Users\Administrator\Desktop\auto_api_test-master\run" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\admin\Desktop\auto_api_test\case" />
-      <recent name="C:\Users\admin\Desktop\auto_api_test\report" />
-      <recent name="C:\Users\admin\Desktop\auto_api_test\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -378,7 +387,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests for test_signup.TestSignUp.test_sign">
+  <component name="RunManager" selected="Python tests.Unittests for test_app_search_class.TestAppSearchClass.test_reqMethodN">
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -515,28 +524,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sign_up" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="auto_api_test" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/common/sign_up.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="Tox" factoryName="Tox">
       <module name="auto_api_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -549,7 +536,7 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test_signup.TestSignUp.test_params" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for case.test_pc_signup.TestSignUp" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="auto_api_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -560,11 +547,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_signup.TestSignUp.test_params&quot;" />
+      <option name="_new_target" value="&quot;case.test_pc_signup.TestSignUp&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests for test_signup.TestSignUp.test_sign" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for case.test_pc_signup.TestSignUp.test_sign" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="auto_api_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -575,11 +562,11 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_signup.TestSignUp.test_sign&quot;" />
+      <option name="_new_target" value="&quot;case.test_pc_signup.TestSignUp.test_sign&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Unittests in test_signup.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for test_app_search_class.TestAppSearchClass.test_reqMethodN" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <module name="auto_api_test" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -590,7 +577,22 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/case/test_signup.py&quot;" />
+      <option name="_new_target" value="&quot;test_app_search_class.TestAppSearchClass.test_reqMethodN&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in test_pc_signup.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="auto_api_test" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/case" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/case/test_pc_signup.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
@@ -661,19 +663,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python tests.Unittests in test_signup.py" />
+      <item itemvalue="Python tests.Unittests in test_pc_signup.py" />
       <item itemvalue="Python.main" />
-      <item itemvalue="Python tests.Unittests for test_signup.TestSignUp.test_sign" />
-      <item itemvalue="Python.sign_up" />
-      <item itemvalue="Python tests.Unittests for test_signup.TestSignUp.test_params" />
+      <item itemvalue="Python tests.Unittests for case.test_pc_signup.TestSignUp.test_sign" />
+      <item itemvalue="Python tests.Unittests for case.test_pc_signup.TestSignUp" />
+      <item itemvalue="Python tests.Unittests for test_app_search_class.TestAppSearchClass.test_reqMethodN" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Unittests for test_signup.TestSignUp.test_sign" />
-        <item itemvalue="Python tests.Unittests in test_signup.py" />
+        <item itemvalue="Python tests.Unittests for test_app_search_class.TestAppSearchClass.test_reqMethodN" />
+        <item itemvalue="Python tests.Unittests in test_pc_signup.py" />
+        <item itemvalue="Python tests.Unittests for case.test_pc_signup.TestSignUp.test_sign" />
         <item itemvalue="Python.main" />
-        <item itemvalue="Python tests.Unittests for test_signup.TestSignUp.test_params" />
-        <item itemvalue="Python.sign_up" />
+        <item itemvalue="Python tests.Unittests for case.test_pc_signup.TestSignUp" />
       </list>
     </recent_temporary>
   </component>
@@ -691,35 +693,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_test_signup_py - 2018.09.04 at 14h 09m 39s.xml">
-      <configuration name="Unittests in test_signup.py" configurationId="tests" />
+    <history-entry file="Unittests_in_test_pc_signup_py - 2018.09.04 at 15h 16m 44s.xml">
+      <configuration name="Unittests in test_pc_signup.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_signup_py - 2018.09.04 at 14h 10m 29s.xml">
-      <configuration name="Unittests in test_signup.py" configurationId="tests" />
+    <history-entry file="Unittests_in_test_pc_signup_py - 2018.09.04 at 15h 21m 45s.xml">
+      <configuration name="Unittests in test_pc_signup.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_signup_py - 2018.09.04 at 14h 13m 04s.xml">
-      <configuration name="Unittests in test_signup.py" configurationId="tests" />
+    <history-entry file="Unittests_in_test_pc_signup_py - 2018.09.04 at 15h 23m 23s.xml">
+      <configuration name="Unittests in test_pc_signup.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_signup_py - 2018.09.04 at 14h 13m 34s.xml">
-      <configuration name="Unittests in test_signup.py" configurationId="tests" />
+    <history-entry file="Unittests_in_test_pc_signup_py - 2018.09.04 at 15h 24m 01s.xml">
+      <configuration name="Unittests in test_pc_signup.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_signup_py - 2018.09.04 at 14h 18m 48s.xml">
-      <configuration name="Unittests in test_signup.py" configurationId="tests" />
+    <history-entry file="Unittests_in_test_pc_signup_py - 2018.09.04 at 15h 25m 33s.xml">
+      <configuration name="Unittests in test_pc_signup.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_signup_py - 2018.09.04 at 14h 28m 57s.xml">
-      <configuration name="Unittests in test_signup.py" configurationId="tests" />
+    <history-entry file="Unittests_in_test_pc_signup_py - 2018.09.04 at 15h 26m 18s.xml">
+      <configuration name="Unittests in test_pc_signup.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_signup_py - 2018.09.04 at 14h 29m 26s.xml">
-      <configuration name="Unittests in test_signup.py" configurationId="tests" />
+    <history-entry file="Unittests_in_test_pc_signup_py - 2018.09.04 at 15h 26m 44s.xml">
+      <configuration name="Unittests in test_pc_signup.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_signup_py - 2018.09.04 at 14h 30m 22s.xml">
-      <configuration name="Unittests in test_signup.py" configurationId="tests" />
+    <history-entry file="Unittests_in_test_pc_signup_py - 2018.09.04 at 15h 27m 52s.xml">
+      <configuration name="Unittests in test_pc_signup.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_signup_py - 2018.09.04 at 14h 35m 14s.xml">
-      <configuration name="Unittests in test_signup.py" configurationId="tests" />
+    <history-entry file="Unittests_for_test_app_search_class_TestAppSearchClass_test_reqMethodN - 2018.09.04 at 15h 50m 55s.xml">
+      <configuration name="Unittests for test_app_search_class.TestAppSearchClass.test_reqMethodN" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_signup_TestSignUp_test_sign - 2018.09.04 at 14h 41m 48s.xml">
-      <configuration name="Unittests for test_signup.TestSignUp.test_sign" configurationId="tests" />
+    <history-entry file="Unittests_for_test_app_search_class_TestAppSearchClass_test_reqMethodN - 2018.09.04 at 15h 51m 19s.xml">
+      <configuration name="Unittests for test_app_search_class.TestAppSearchClass.test_reqMethodN" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -775,8 +777,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/global.yaml" />
-    <entry file="file://$PROJECT_DIR$/config/test_report.yaml" />
     <entry file="file://$PROJECT_DIR$/log/2018_04_12.log" />
     <entry file="file://$PROJECT_DIR$/lib/printlog.py" />
     <entry file="file://$PROJECT_DIR$/config/Email.ini" />
@@ -967,13 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/global.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="5" column="10" lean-forward="true" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/log/Interface-2018-09-04-11.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
@@ -1033,13 +1026,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/case/test_signup.py">
+    <entry file="file://$PROJECT_DIR$/config/global.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-164">
-          <caret line="57" column="61" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
+        <state relative-caret-position="261">
+          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="53" column="27" lean-forward="true" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+          <folding>
+            <element signature="e#73#86#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/case/test_pc_signup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="13" column="19" lean-forward="true" selection-end-line="108" />
+          <folding>
+            <marker date="1536046290156" expanded="true" signature="1648:1653" ph="..." />
+            <marker date="1536046290156" expanded="true" signature="4422:5001" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/case/test_app_search_class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="114" column="4" selection-start-line="114" selection-start-column="4" selection-end-line="114" selection-end-column="4" />
           <folding>
             <element signature="e#137#162#0" expanded="true" />
-            <marker date="1536043338908" expanded="true" signature="1620:1625" ph="..." />
+            <marker date="1536049482780" expanded="true" signature="5113:5694" ph="..." />
           </folding>
         </state>
       </provider>
