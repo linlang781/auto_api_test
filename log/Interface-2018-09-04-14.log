@@ -1,0 +1,2 @@
+[2018-09-04 14:41:48.063600] INFO: Interface: 请求/bentley/api/applyForTcjAsyn/,参数{'name': 'linlang9', 'phone': '15633996699', 'cityId': 10, 'carStyleId': 32, 'brandId': 67, 'groupbyType': 1, 'groupbyNum': 2001},状态<Response [200]>,
+ 响应数据{"code":100001,"msg":"参数异常","result":null}
