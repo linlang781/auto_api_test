@@ -60,6 +60,8 @@ if __name__ == '__main__':
         send_mail()
     elif send_mail_off == 'runcase':
         test_runner()
+    else:
+        raise Exception('参数输入错误')
 
 
 

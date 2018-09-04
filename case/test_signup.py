@@ -11,6 +11,8 @@
 import unittest, requests
 from lib.log import LOG
 from lib.tools import failrun
+from parameterized import parameterized, param
+
 
 class TestSignUp(unittest.TestCase):
     '''报名接口测试'''
@@ -24,11 +26,25 @@ class TestSignUp(unittest.TestCase):
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36"
         }
 
-    def test_sign(self):
+    @parameterized.expand(
+        [
+            param(data_params={'name': 'linlang9', 'cityId': 10, 'carStyleId': 32633, 'brandId': 67, 'groupbyType': 1,
+                               'groupbyNum': 2001}),
+            param(data_params={'name': 'linlang9', 'cityId': 10, 'carStyleId': 32633, 'brandId': 67, 'groupbyType': 1,
+                               'groupbyNum': 2001}),
+            param(
+                data_params={'phone': '15633669988', 'cityId': 10, 'carStyleId': 32633, 'brandId': 67, 'groupbyType': 1,
+                             'groupbyNum': 2001}),
+            param(data_params={'name': 'linlang9', 'phone': '15633669988', 'carStyleId': 32633, 'brandId': 67,
+                               'groupbyType': 1,
+                               'groupbyNum': 2001})
+        ]
+    )
+    def test_sign(self, data_params):
         '''报名'''
-        params = {'name': 'linlang9', 'cityId': 10, 'carStyleId': 32633, 'brandId': 67, 'groupbyType': 1, 'groupbyNum': 2001}
+        data = data_params
         # name=linlang&=15601128781&cityId=10&carStyleId=32633&brandId=67&groupbyType=1&groupbyNum=2001
-        response = requests.post(self.url, data=params)
+        response = requests.post(self.url, data=data)
         # self.assertEqual(response.status_code, 200, '断言状态码为200')
         print(response.text)
         self.assertEqual(response.json()['code'], 10000, '断言结果为10001')
@@ -44,5 +60,3 @@ if __name__ == '__main__':
     # 执行测试
     runner = unittest.TextTestRunner()
     runner.run(suite)
-
-
