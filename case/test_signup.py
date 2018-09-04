@@ -10,6 +10,7 @@
 """
 import unittest, requests
 from lib.log import LOG
+from lib.tools import failrun
 
 class TestSignUp(unittest.TestCase):
     '''报名接口测试'''
@@ -23,17 +24,18 @@ class TestSignUp(unittest.TestCase):
             "User-Agent": "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36"
         }
 
-    def test_sign(self, params):
+    def test_sign(self):
         '''报名'''
         params = {'name': 'linlang9', 'cityId': 10, 'carStyleId': 32633, 'brandId': 67, 'groupbyType': 1, 'groupbyNum': 2001}
         # name=linlang&=15601128781&cityId=10&carStyleId=32633&brandId=67&groupbyType=1&groupbyNum=2001
         response = requests.post(self.url, data=params)
         # self.assertEqual(response.status_code, 200, '断言状态码为200')
         print(response.text)
-        self.assertEqual(response.json()['code'], 10001, '断言结果为10001')
+        self.assertEqual(response.json()['code'], 10000, '断言结果为10001')
 
     def tearDown(self):
         pass
+
 
 if __name__ == '__main__':
     # 构造测试集

@@ -27,7 +27,6 @@ class ConfigOperate(object):
         conf_path = os.path.join(cwd_path, 'config')
         file_path = os.path.join(conf_path, '%s.ini' % file_name)
         self.file_path = file_path
-        print(self.file_path)
         self.config = ConfigParser()
 
     def get_config(self, section, option):

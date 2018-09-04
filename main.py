@@ -17,14 +17,23 @@ from lib.config_operate import ConfigOperate
 from lib.log import LOG
 
 test_dir = './case/'
-discover = unittest.defaultTestLoader.discover(test_dir, pattern='test*.py')
+now = time.strftime('%Y-%m-%d %H_%M_%S')
+report_file_name = './report/' + now + 'result.html'
 
-if __name__ == '__main__':
-    now = time.strftime('%Y-%m-%d %H_%M_%S')
-    report_file_name = './report/' + now + 'result.html'
+def create_suite():
+    test_suite = unittest.TestSuite()
+    discover = unittest.defaultTestLoader.discover(test_dir, pattern='test*.py', top_level_dir=None)
+    for suite in discover:
+        for case in suite:
+            test_suite.addTest(case)
+            print(test_suite)
+    return test_suite
+
+def test_runner():
+    all_case_name = create_suite()
     fp = open(report_file_name, 'wb')
     runner = BSTestRunner(stream=fp, title='接口自动化测试报告', description='用例执行情况如下')
-    m = runner.run(discover)
+    m = runner.run(all_case_name)
     fp.close()
     to_list = ConfigOperate('global').get_config('email_send', 'to_list').split(';')
     cc_list = ConfigOperate('global').get_config('email_send', 'cc_list').split(';')
@@ -38,4 +47,11 @@ if __name__ == '__main__':
         LOG.info('测试报告邮件发送成功')
     else:
         LOG.info('邮件发送失败')
+
+if __name__ == '__main__':
+    test_runner()
+
+
+
+
 

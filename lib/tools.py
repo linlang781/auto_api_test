@@ -13,6 +13,7 @@ import hashlib
 import time
 import gzip
 import json
+from lib.log import LOG
 
 
 def get_md5(data):
@@ -74,6 +75,18 @@ def gzdecode(self, data):
     data2 = gziper.read()  # 读取解压缩后数据
     return data2
 
+def failrun(n=3):
+    def decorator(func):
+        def wrapper(*args,**kw):
+            for i in range(n):
+                try:
+                    r=func(*args,**kw)
+                    return r
+                except AssertionError as err:
+                    LOG.info('用例第%d次失败原因:%s'%(i+1, err))
+            raise AssertionError
+        return wrapper
+    return decorator
 
 if __name__ == '__main__':
     pass
