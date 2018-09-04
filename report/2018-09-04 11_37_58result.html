@@ -150,8 +150,8 @@ function showOutput(id, name) {
 <div class="container">
     <div class='heading'>
 <h1>接口自动化测试报告</h1>
-<p><strong>Start Time:</strong> 2018-09-04 10:48:25</p>
-<p><strong>Duration:</strong> 0:00:00.111000</p>
+<p><strong>Start Time:</strong> 2018-09-04 11:37:58</p>
+<p><strong>Duration:</strong> 0:00:00.020000</p>
 <p><strong>Status:</strong> <span class="text text-danger">Failure <strong>1</strong></span></p>
 
 <p class='description'>用例执行情况如下</p>
@@ -187,7 +187,7 @@ function showOutput(id, name) {
 </tr>
 
 <tr id='ft1.1' class='none'>
-    <td class='text text-danger'><div class='testcase'>test_sign</div></td>
+    <td class='text text-danger'><div class='testcase'>test_sign: 报名</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -202,29 +202,10 @@ function showOutput(id, name) {
         <pre>
         
 ft1.1: {"code":100001,"msg":"参数异常","result":null}
-[2018-09-04 10:48:25.285600] INFO: Interface: 用例第1次失败原因:100001 != 10000 : 断言结果为10001
-{"code":100001,"msg":"参数异常","result":null}
-[2018-09-04 10:48:25.295600] INFO: Interface: 用例第2次失败原因:100001 != 10000 : 断言结果为10001
-{"code":100001,"msg":"参数异常","result":null}
-[2018-09-04 10:48:25.305600] INFO: Interface: 用例第3次失败原因:100001 != 10000 : 断言结果为10001
-{"code":100001,"msg":"参数异常","result":null}
-[2018-09-04 10:48:25.314600] INFO: Interface: 用例第4次失败原因:100001 != 10000 : 断言结果为10001
-{"code":100001,"msg":"参数异常","result":null}
-[2018-09-04 10:48:25.324600] INFO: Interface: 用例第5次失败原因:100001 != 10000 : 断言结果为10001
-{"code":100001,"msg":"参数异常","result":null}
-[2018-09-04 10:48:25.340600] INFO: Interface: 用例第6次失败原因:100001 != 10000 : 断言结果为10001
-{"code":100001,"msg":"参数异常","result":null}
-[2018-09-04 10:48:25.350600] INFO: Interface: 用例第7次失败原因:100001 != 10000 : 断言结果为10001
-{"code":100001,"msg":"参数异常","result":null}
-[2018-09-04 10:48:25.359600] INFO: Interface: 用例第8次失败原因:100001 != 10000 : 断言结果为10001
-{"code":100001,"msg":"参数异常","result":null}
-[2018-09-04 10:48:25.369600] INFO: Interface: 用例第9次失败原因:100001 != 10000 : 断言结果为10001
-{"code":100001,"msg":"参数异常","result":null}
-[2018-09-04 10:48:25.378600] INFO: Interface: 用例第10次失败原因:100001 != 10000 : 断言结果为10001
 Traceback (most recent call last):
-  File "C:\Users\admin\Desktop\auto_api_test\lib\tools.py", line 87, in wrapper
-    raise AssertionError
-AssertionError
+  File "C:\Users\admin\Desktop\auto_api_test\case\test_signup.py", line 34, in test_sign
+    self.assertEqual(response.json()['code'], 10000, '断言结果为10001')
+AssertionError: 100001 != 10000 : 断言结果为10001
 
 
         </pre>
